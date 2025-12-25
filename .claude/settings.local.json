@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m src.data.fetch_nyc_data:*)",
+      "Bash(python -c:*)"
+    ]
+  }
+}
