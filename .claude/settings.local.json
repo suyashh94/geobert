@@ -2,7 +2,15 @@
   "permissions": {
     "allow": [
       "Bash(python -m src.data.fetch_nyc_data:*)",
-      "Bash(python -c:*)"
+      "Bash(python -c:*)",
+      "Bash(uv sync:*)",
+      "WebSearch",
+      "Bash(ruff check:*)",
+      "Bash(find:*)",
+      "Bash(cat:*)",
+      "Bash(python -m geobert.device:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(huggingface-cli upload:*)"
     ]
   }
 }

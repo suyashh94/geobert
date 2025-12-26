@@ -1,0 +1,2704 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_76eed71a7427a9ab760720ecf9f4facd {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_76eed71a7427a9ab760720ecf9f4facd" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_76eed71a7427a9ab760720ecf9f4facd = L.map(
+                "map_76eed71a7427a9ab760720ecf9f4facd",
+                {
+                    center: [40.7128, -74.006],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d0ed64f66a325e2bd5ba4b5f710fbf77 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d0ed64f66a325e2bd5ba4b5f710fbf77.addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var poly_line_38613f26b72479dacaf16e584e01579e = L.polyline(
+                [[40.75178909301758, -73.99207305908203], [40.757293701171875, -73.97388458251953]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_a93345b229fcaea650a3cb41c97b8cfd = L.circleMarker(
+                [40.75178909301758, -73.99207305908203],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_a5f6534d84d90e92ed7f81c8ef460283 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f13cad5f5429d2f6874eefa92014ffdc = $(`<div id="html_f13cad5f5429d2f6874eefa92014ffdc" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>225 W  34 ST, Manhattan, NY 10122<br>Error: 1650m</div>`)[0];
+                popup_a5f6534d84d90e92ed7f81c8ef460283.setContent(html_f13cad5f5429d2f6874eefa92014ffdc);
+            
+        
+
+        circle_marker_a93345b229fcaea650a3cb41c97b8cfd.bindPopup(popup_a5f6534d84d90e92ed7f81c8ef460283)
+        ;
+
+        
+    
+    
+            var circle_marker_997aa5163f4858163bde28c383c47380 = L.circleMarker(
+                [40.757293701171875, -73.97388458251953],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_adf3e4084a6a6e82bd7a660af4a65630 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5dd72a66648534efc214206cd639c15c = $(`<div id="html_5dd72a66648534efc214206cd639c15c" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 1650m</div>`)[0];
+                popup_adf3e4084a6a6e82bd7a660af4a65630.setContent(html_5dd72a66648534efc214206cd639c15c);
+            
+        
+
+        circle_marker_997aa5163f4858163bde28c383c47380.bindPopup(popup_adf3e4084a6a6e82bd7a660af4a65630)
+        ;
+
+        
+    
+    
+            var poly_line_02ad5374f065b6ac3c108e5f634aeae2 = L.polyline(
+                [[40.602230072021484, -74.1754379272461], [40.596397399902344, -74.18626403808594]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_fde45a0c6f100baba60201c5c93df654 = L.circleMarker(
+                [40.602230072021484, -74.1754379272461],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_c1a4d47927edfb89a35a35369d5e37a9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7d388f84d31ee3ec9363024e6c4246b1 = $(`<div id="html_7d388f84d31ee3ec9363024e6c4246b1" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>3511 VICTORY BLVD, Staten Island, NY 10314<br>Error: 1121m</div>`)[0];
+                popup_c1a4d47927edfb89a35a35369d5e37a9.setContent(html_7d388f84d31ee3ec9363024e6c4246b1);
+            
+        
+
+        circle_marker_fde45a0c6f100baba60201c5c93df654.bindPopup(popup_c1a4d47927edfb89a35a35369d5e37a9)
+        ;
+
+        
+    
+    
+            var circle_marker_5f83a46a2f58ebe998f6bedcf8f3dcec = L.circleMarker(
+                [40.596397399902344, -74.18626403808594],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_9acdd28e153cd7c6405979a8c90c0afa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_04c0cd60195a04696e845f26184b49f5 = $(`<div id="html_04c0cd60195a04696e845f26184b49f5" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 1121m</div>`)[0];
+                popup_9acdd28e153cd7c6405979a8c90c0afa.setContent(html_04c0cd60195a04696e845f26184b49f5);
+            
+        
+
+        circle_marker_5f83a46a2f58ebe998f6bedcf8f3dcec.bindPopup(popup_9acdd28e153cd7c6405979a8c90c0afa)
+        ;
+
+        
+    
+    
+            var poly_line_aab54555a9ba1616168f4d8ca3309cfa = L.polyline(
+                [[40.597755432128906, -74.1632308959961], [40.60471725463867, -74.16615295410156]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_c609b2da84645fc80cb589278109bdc8 = L.circleMarker(
+                [40.597755432128906, -74.1632308959961],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_f20717cb8a86f187d363a5e40f469de5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2b1bda0568a3f7e61de89284cb74c60f = $(`<div id="html_2b1bda0568a3f7e61de89284cb74c60f" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>29 JENNIFER CT, Staten Island, NY 10314<br>Error: 812m</div>`)[0];
+                popup_f20717cb8a86f187d363a5e40f469de5.setContent(html_2b1bda0568a3f7e61de89284cb74c60f);
+            
+        
+
+        circle_marker_c609b2da84645fc80cb589278109bdc8.bindPopup(popup_f20717cb8a86f187d363a5e40f469de5)
+        ;
+
+        
+    
+    
+            var circle_marker_f9d37acb36a557ef0b7939008a7db554 = L.circleMarker(
+                [40.60471725463867, -74.16615295410156],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_4f27aed9c88b1fb70bbe451e88981f4f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6efd60b2b6d5cc90a36d1b8e5f5ef85f = $(`<div id="html_6efd60b2b6d5cc90a36d1b8e5f5ef85f" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 812m</div>`)[0];
+                popup_4f27aed9c88b1fb70bbe451e88981f4f.setContent(html_6efd60b2b6d5cc90a36d1b8e5f5ef85f);
+            
+        
+
+        circle_marker_f9d37acb36a557ef0b7939008a7db554.bindPopup(popup_4f27aed9c88b1fb70bbe451e88981f4f)
+        ;
+
+        
+    
+    
+            var poly_line_c0d5181a33c09af2d0f747936464eef3 = L.polyline(
+                [[40.754051208496094, -73.980712890625], [40.758323669433594, -73.98782348632812]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_0bd88e45b85236aa9f157486a6b0fdb3 = L.circleMarker(
+                [40.754051208496094, -73.980712890625],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_f04a94e307059b997a3b0ec4b58ed48f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_548e538d7fe13a8c76af8c86550a8807 = $(`<div id="html_548e538d7fe13a8c76af8c86550a8807" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>510 5 AVE, Manhattan, NY 10036<br>Error: 764m</div>`)[0];
+                popup_f04a94e307059b997a3b0ec4b58ed48f.setContent(html_548e538d7fe13a8c76af8c86550a8807);
+            
+        
+
+        circle_marker_0bd88e45b85236aa9f157486a6b0fdb3.bindPopup(popup_f04a94e307059b997a3b0ec4b58ed48f)
+        ;
+
+        
+    
+    
+            var circle_marker_6895f337700e6e4bbd464529e796498a = L.circleMarker(
+                [40.758323669433594, -73.98782348632812],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_1679905234d258e10042ed30d6eb7772 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_02fcc8f9bcd0f11f7e2fdf3420cad04a = $(`<div id="html_02fcc8f9bcd0f11f7e2fdf3420cad04a" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 764m</div>`)[0];
+                popup_1679905234d258e10042ed30d6eb7772.setContent(html_02fcc8f9bcd0f11f7e2fdf3420cad04a);
+            
+        
+
+        circle_marker_6895f337700e6e4bbd464529e796498a.bindPopup(popup_1679905234d258e10042ed30d6eb7772)
+        ;
+
+        
+    
+    
+            var poly_line_e38e8d356ae3e8a607e8de03a13c47a3 = L.polyline(
+                [[40.655277252197266, -73.83222198486328], [40.66145324707031, -73.83235168457031]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_6f8992b4b7dd34e29a670344e09e9cbc = L.circleMarker(
+                [40.655277252197266, -73.83222198486328],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_e17d72cf6c994a4c71f46319414bb214 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0258fee475855a58c1f955c1d6007f83 = $(`<div id="html_0258fee475855a58c1f955c1d6007f83" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>152 BROADWAY, Queens, NY 11414<br>Error: 687m</div>`)[0];
+                popup_e17d72cf6c994a4c71f46319414bb214.setContent(html_0258fee475855a58c1f955c1d6007f83);
+            
+        
+
+        circle_marker_6f8992b4b7dd34e29a670344e09e9cbc.bindPopup(popup_e17d72cf6c994a4c71f46319414bb214)
+        ;
+
+        
+    
+    
+            var circle_marker_3f067542b66289037d6eba59282cc427 = L.circleMarker(
+                [40.66145324707031, -73.83235168457031],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_68da6cd81f66acdca7023218eb6af8f7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5f85cb268e637666a65bd51289dd6260 = $(`<div id="html_5f85cb268e637666a65bd51289dd6260" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 687m</div>`)[0];
+                popup_68da6cd81f66acdca7023218eb6af8f7.setContent(html_5f85cb268e637666a65bd51289dd6260);
+            
+        
+
+        circle_marker_3f067542b66289037d6eba59282cc427.bindPopup(popup_68da6cd81f66acdca7023218eb6af8f7)
+        ;
+
+        
+    
+    
+            var poly_line_38665117b02050e373c75d7909030785 = L.polyline(
+                [[40.53002166748047, -74.2292709350586], [40.530555725097656, -74.23735809326172]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_eaafde7d5a9e86ea73f8ae24184a6e79 = L.circleMarker(
+                [40.53002166748047, -74.2292709350586],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_67701542002d8d139fc642b821a8f06c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d01ab1002de451c63f87c43238adddcf = $(`<div id="html_d01ab1002de451c63f87c43238adddcf" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>85 BRICKTOWN WAY, Staten Island, NY 10309<br>Error: 686m</div>`)[0];
+                popup_67701542002d8d139fc642b821a8f06c.setContent(html_d01ab1002de451c63f87c43238adddcf);
+            
+        
+
+        circle_marker_eaafde7d5a9e86ea73f8ae24184a6e79.bindPopup(popup_67701542002d8d139fc642b821a8f06c)
+        ;
+
+        
+    
+    
+            var circle_marker_746a53a9f793dc60cd70332361811a11 = L.circleMarker(
+                [40.530555725097656, -74.23735809326172],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_3473e6dbcf449b6b2cf26779e9715ea6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f4794a4343d836f75b062b2fc1a9e4f2 = $(`<div id="html_f4794a4343d836f75b062b2fc1a9e4f2" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 686m</div>`)[0];
+                popup_3473e6dbcf449b6b2cf26779e9715ea6.setContent(html_f4794a4343d836f75b062b2fc1a9e4f2);
+            
+        
+
+        circle_marker_746a53a9f793dc60cd70332361811a11.bindPopup(popup_3473e6dbcf449b6b2cf26779e9715ea6)
+        ;
+
+        
+    
+    
+            var poly_line_c427d7e0274602252f97e6573b07bc78 = L.polyline(
+                [[40.855125427246094, -73.93359375], [40.860504150390625, -73.93081665039062]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_157899df2b707eb8998203e7fef2f9a7 = L.circleMarker(
+                [40.855125427246094, -73.93359375],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_da486c06f16cd6d39b76bbffa6515a25 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_17fb3bd02e31833beb226a3fb8ed1fa9 = $(`<div id="html_17fb3bd02e31833beb226a3fb8ed1fa9" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>4401 BROADWAY, Manhattan, NY 10040<br>Error: 642m</div>`)[0];
+                popup_da486c06f16cd6d39b76bbffa6515a25.setContent(html_17fb3bd02e31833beb226a3fb8ed1fa9);
+            
+        
+
+        circle_marker_157899df2b707eb8998203e7fef2f9a7.bindPopup(popup_da486c06f16cd6d39b76bbffa6515a25)
+        ;
+
+        
+    
+    
+            var circle_marker_a82173809bef65cfd1e0af993b33fdba = L.circleMarker(
+                [40.860504150390625, -73.93081665039062],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_17c6f3401211a4e85cfca180ed470fad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b2c1e5e450da44d872a2a4a1ebd6a687 = $(`<div id="html_b2c1e5e450da44d872a2a4a1ebd6a687" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 642m</div>`)[0];
+                popup_17c6f3401211a4e85cfca180ed470fad.setContent(html_b2c1e5e450da44d872a2a4a1ebd6a687);
+            
+        
+
+        circle_marker_a82173809bef65cfd1e0af993b33fdba.bindPopup(popup_17c6f3401211a4e85cfca180ed470fad)
+        ;
+
+        
+    
+    
+            var poly_line_e23d854aadd70019d501d157e7717e0f = L.polyline(
+                [[40.830387115478516, -73.8150634765625], [40.83561325073242, -73.81737518310547]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_18499e529455e95fed18c4e0ad936a4f = L.circleMarker(
+                [40.830387115478516, -73.8150634765625],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_0bba8e4590a50727b171ccf8ab790adc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b7fd758911dd2936350eb26ad17b80cd = $(`<div id="html_b7fd758911dd2936350eb26ad17b80cd" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>1321 SHORE DR, Bronx, NY 10465<br>Error: 613m</div>`)[0];
+                popup_0bba8e4590a50727b171ccf8ab790adc.setContent(html_b7fd758911dd2936350eb26ad17b80cd);
+            
+        
+
+        circle_marker_18499e529455e95fed18c4e0ad936a4f.bindPopup(popup_0bba8e4590a50727b171ccf8ab790adc)
+        ;
+
+        
+    
+    
+            var circle_marker_5647111a5ee89139d65402d87d3b8256 = L.circleMarker(
+                [40.83561325073242, -73.81737518310547],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_6cca516b204e2bd6ba18bb0dafc20805 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_92f57c3be7757076e30dd1477d6aa417 = $(`<div id="html_92f57c3be7757076e30dd1477d6aa417" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 613m</div>`)[0];
+                popup_6cca516b204e2bd6ba18bb0dafc20805.setContent(html_92f57c3be7757076e30dd1477d6aa417);
+            
+        
+
+        circle_marker_5647111a5ee89139d65402d87d3b8256.bindPopup(popup_6cca516b204e2bd6ba18bb0dafc20805)
+        ;
+
+        
+    
+    
+            var poly_line_98567d3e48610019fd350b61a9c88075 = L.polyline(
+                [[40.59254455566406, -74.15666961669922], [40.58833312988281, -74.1611328125]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_48077167ad9771cc0a6515564b5cf254 = L.circleMarker(
+                [40.59254455566406, -74.15666961669922],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_a89a65b928239fdf91881940bb608f3b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_65e5f2c369dbe7719fb845fd8eb52192 = $(`<div id="html_65e5f2c369dbe7719fb845fd8eb52192" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>23 MERRYMOUNT ST, Staten Island, NY 10314<br>Error: 601m</div>`)[0];
+                popup_a89a65b928239fdf91881940bb608f3b.setContent(html_65e5f2c369dbe7719fb845fd8eb52192);
+            
+        
+
+        circle_marker_48077167ad9771cc0a6515564b5cf254.bindPopup(popup_a89a65b928239fdf91881940bb608f3b)
+        ;
+
+        
+    
+    
+            var circle_marker_3ab98cdbe0c6e5a628b5f5c045af7a31 = L.circleMarker(
+                [40.58833312988281, -74.1611328125],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_2d434d275e04a7f41faf860e985a2174 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0da2295a4dccb04aa966b581567a87e6 = $(`<div id="html_0da2295a4dccb04aa966b581567a87e6" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 601m</div>`)[0];
+                popup_2d434d275e04a7f41faf860e985a2174.setContent(html_0da2295a4dccb04aa966b581567a87e6);
+            
+        
+
+        circle_marker_3ab98cdbe0c6e5a628b5f5c045af7a31.bindPopup(popup_2d434d275e04a7f41faf860e985a2174)
+        ;
+
+        
+    
+    
+            var poly_line_f20f1c5c58d78b529fc18c1640ea5e37 = L.polyline(
+                [[40.50164794921875, -74.24842834472656], [40.49928665161133, -74.25435638427734]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_4677e6ceefe0cd1edd02f4b9f8af1448 = L.circleMarker(
+                [40.50164794921875, -74.24842834472656],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_09f6875b37566f062f7352c0e660b3f7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e2711e5b28940401252c211775e1c5bf = $(`<div id="html_e2711e5b28940401252c211775e1c5bf" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>236 FINLAY ST, Staten Island, NY 10307<br>Error: 566m</div>`)[0];
+                popup_09f6875b37566f062f7352c0e660b3f7.setContent(html_e2711e5b28940401252c211775e1c5bf);
+            
+        
+
+        circle_marker_4677e6ceefe0cd1edd02f4b9f8af1448.bindPopup(popup_09f6875b37566f062f7352c0e660b3f7)
+        ;
+
+        
+    
+    
+            var circle_marker_fcd3ef6179e0ec1689643e04cda9d1f8 = L.circleMarker(
+                [40.49928665161133, -74.25435638427734],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_f095eb800ecebc1215aff0a2da6cd035 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_702d52d6562899ad3ee3632f4cd29d1a = $(`<div id="html_702d52d6562899ad3ee3632f4cd29d1a" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 566m</div>`)[0];
+                popup_f095eb800ecebc1215aff0a2da6cd035.setContent(html_702d52d6562899ad3ee3632f4cd29d1a);
+            
+        
+
+        circle_marker_fcd3ef6179e0ec1689643e04cda9d1f8.bindPopup(popup_f095eb800ecebc1215aff0a2da6cd035)
+        ;
+
+        
+    
+    
+            var poly_line_a22bcfdb4afbe01944805a780a6529ef = L.polyline(
+                [[40.58896255493164, -73.8172607421875], [40.58478546142578, -73.81349182128906]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_b57efe252b1b2db9c0cefc0c3a5b0fc7 = L.circleMarker(
+                [40.58896255493164, -73.8172607421875],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_18a36faeb5b9059399e5b5667a9017b9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d9e9f8ae24df29f127a4af55bc3d8152 = $(`<div id="html_d9e9f8ae24df29f127a4af55bc3d8152" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>375 BCH 92 ST, Queens, NY 11693<br>Error: 563m</div>`)[0];
+                popup_18a36faeb5b9059399e5b5667a9017b9.setContent(html_d9e9f8ae24df29f127a4af55bc3d8152);
+            
+        
+
+        circle_marker_b57efe252b1b2db9c0cefc0c3a5b0fc7.bindPopup(popup_18a36faeb5b9059399e5b5667a9017b9)
+        ;
+
+        
+    
+    
+            var circle_marker_cc2e33f369bee468bbc89c0c9b130196 = L.circleMarker(
+                [40.58478546142578, -73.81349182128906],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_bce88eccebc8cce5d1af87c7b7cc8f72 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b5856d38a5a980a04328790165bd7bc6 = $(`<div id="html_b5856d38a5a980a04328790165bd7bc6" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 563m</div>`)[0];
+                popup_bce88eccebc8cce5d1af87c7b7cc8f72.setContent(html_b5856d38a5a980a04328790165bd7bc6);
+            
+        
+
+        circle_marker_cc2e33f369bee468bbc89c0c9b130196.bindPopup(popup_bce88eccebc8cce5d1af87c7b7cc8f72)
+        ;
+
+        
+    
+    
+            var poly_line_a0521498f8094c71127271ffc48bf516 = L.polyline(
+                [[40.5883903503418, -74.14746856689453], [40.58979415893555, -74.15377044677734]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_bbea7b145d3bc1a580ce1321d344930c = L.circleMarker(
+                [40.5883903503418, -74.14746856689453],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_62ad51754383ae61954b615d505f39e2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_700037ee6a67bf298239b1fcac7773e1 = $(`<div id="html_700037ee6a67bf298239b1fcac7773e1" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>898 ROCKLAND AVE, Staten Island, NY 10314<br>Error: 555m</div>`)[0];
+                popup_62ad51754383ae61954b615d505f39e2.setContent(html_700037ee6a67bf298239b1fcac7773e1);
+            
+        
+
+        circle_marker_bbea7b145d3bc1a580ce1321d344930c.bindPopup(popup_62ad51754383ae61954b615d505f39e2)
+        ;
+
+        
+    
+    
+            var circle_marker_2b24d6c94591bab1c53716cbb12f4b49 = L.circleMarker(
+                [40.58979415893555, -74.15377044677734],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_263a43e12188a691d77d58387a3c4f70 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5302d44c0b2d27bdbede09b01c0dbebd = $(`<div id="html_5302d44c0b2d27bdbede09b01c0dbebd" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 555m</div>`)[0];
+                popup_263a43e12188a691d77d58387a3c4f70.setContent(html_5302d44c0b2d27bdbede09b01c0dbebd);
+            
+        
+
+        circle_marker_2b24d6c94591bab1c53716cbb12f4b49.bindPopup(popup_263a43e12188a691d77d58387a3c4f70)
+        ;
+
+        
+    
+    
+            var poly_line_aa6f66c4db1ea3ab4a22ccd2d7917ace = L.polyline(
+                [[40.573543548583984, -74.00508880615234], [40.57490539550781, -74.01116180419922]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_2cb79c485ecaf5a72e410de5b1006575 = L.circleMarker(
+                [40.573543548583984, -74.00508880615234],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_94cb52d6b4d4ad2ec5efc740fe104367 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8ac8d5591a8a2dee059aead79d3ee616 = $(`<div id="html_8ac8d5591a8a2dee059aead79d3ee616" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>3812 ATLANTIC AVE, Brooklyn, NY 11224<br>Error: 535m</div>`)[0];
+                popup_94cb52d6b4d4ad2ec5efc740fe104367.setContent(html_8ac8d5591a8a2dee059aead79d3ee616);
+            
+        
+
+        circle_marker_2cb79c485ecaf5a72e410de5b1006575.bindPopup(popup_94cb52d6b4d4ad2ec5efc740fe104367)
+        ;
+
+        
+    
+    
+            var circle_marker_15f4d2841330a2b2f40584f88407d602 = L.circleMarker(
+                [40.57490539550781, -74.01116180419922],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_68ea8b6dbfcad7f4cada6cbdcbfee119 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0863be5621c5a8732118b069c440af35 = $(`<div id="html_0863be5621c5a8732118b069c440af35" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 535m</div>`)[0];
+                popup_68ea8b6dbfcad7f4cada6cbdcbfee119.setContent(html_0863be5621c5a8732118b069c440af35);
+            
+        
+
+        circle_marker_15f4d2841330a2b2f40584f88407d602.bindPopup(popup_68ea8b6dbfcad7f4cada6cbdcbfee119)
+        ;
+
+        
+    
+    
+            var poly_line_02eb3b7b0d2717e9b149c9fb8e8b6bd1 = L.polyline(
+                [[40.59342956542969, -73.94073486328125], [40.588844299316406, -73.93939971923828]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_7fbbff75062d754ebfc04fa13d43dbaa = L.circleMarker(
+                [40.59342956542969, -73.94073486328125],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_d7f18046da96945539199fdab1e0913d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_118a9ca3a1725cbbdc350ee552787fcc = $(`<div id="html_118a9ca3a1725cbbdc350ee552787fcc" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>3718 NOSTRAND AVE, Brooklyn, NY 11235<br>Error: 522m</div>`)[0];
+                popup_d7f18046da96945539199fdab1e0913d.setContent(html_118a9ca3a1725cbbdc350ee552787fcc);
+            
+        
+
+        circle_marker_7fbbff75062d754ebfc04fa13d43dbaa.bindPopup(popup_d7f18046da96945539199fdab1e0913d)
+        ;
+
+        
+    
+    
+            var circle_marker_af74477deb43699a0ae11512f5448e3c = L.circleMarker(
+                [40.588844299316406, -73.93939971923828],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_060cea1950dbe4b0408a213983dcbbe4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2377a0f53808ffcae2fab1e98218403b = $(`<div id="html_2377a0f53808ffcae2fab1e98218403b" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 522m</div>`)[0];
+                popup_060cea1950dbe4b0408a213983dcbbe4.setContent(html_2377a0f53808ffcae2fab1e98218403b);
+            
+        
+
+        circle_marker_af74477deb43699a0ae11512f5448e3c.bindPopup(popup_060cea1950dbe4b0408a213983dcbbe4)
+        ;
+
+        
+    
+    
+            var poly_line_89726b0eb53909af66ca62967ab8c647 = L.polyline(
+                [[40.505897521972656, -74.25166320800781], [40.502784729003906, -74.25626373291016]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_a1b7d8f1d8423dea2030b5b79670ac17 = L.circleMarker(
+                [40.505897521972656, -74.25166320800781],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_9751d3d29712b193bd0a2272e2998448 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_349d04161eec45a6be00e4e426a078d1 = $(`<div id="html_349d04161eec45a6be00e4e426a078d1" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>34 BRYAN ST, Staten Island, NY 10307<br>Error: 521m</div>`)[0];
+                popup_9751d3d29712b193bd0a2272e2998448.setContent(html_349d04161eec45a6be00e4e426a078d1);
+            
+        
+
+        circle_marker_a1b7d8f1d8423dea2030b5b79670ac17.bindPopup(popup_9751d3d29712b193bd0a2272e2998448)
+        ;
+
+        
+    
+    
+            var circle_marker_ca572c6bbfe1b6067d49daf69760e9b5 = L.circleMarker(
+                [40.502784729003906, -74.25626373291016],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_9fcb39eaaf423a2f79d63d1b8c1f61bb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_45d13adae99895a15758346e008e3746 = $(`<div id="html_45d13adae99895a15758346e008e3746" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 521m</div>`)[0];
+                popup_9fcb39eaaf423a2f79d63d1b8c1f61bb.setContent(html_45d13adae99895a15758346e008e3746);
+            
+        
+
+        circle_marker_ca572c6bbfe1b6067d49daf69760e9b5.bindPopup(popup_9fcb39eaaf423a2f79d63d1b8c1f61bb)
+        ;
+
+        
+    
+    
+            var poly_line_875067ecc7832a8213bbe8760186fedc = L.polyline(
+                [[40.74367904663086, -73.92684936523438], [40.74763870239258, -73.92957305908203]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_81c2477947183089ca4f5b2cc90b5f5e = L.circleMarker(
+                [40.74367904663086, -73.92684936523438],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_be78251ad743ca6ea9a6676cc7ae3dfe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ea1e37a45dcc4e2d1a54d5031041b449 = $(`<div id="html_ea1e37a45dcc4e2d1a54d5031041b449" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>38-02 QUEENS BLVD, Queens, NY 11101<br>Error: 496m</div>`)[0];
+                popup_be78251ad743ca6ea9a6676cc7ae3dfe.setContent(html_ea1e37a45dcc4e2d1a54d5031041b449);
+            
+        
+
+        circle_marker_81c2477947183089ca4f5b2cc90b5f5e.bindPopup(popup_be78251ad743ca6ea9a6676cc7ae3dfe)
+        ;
+
+        
+    
+    
+            var circle_marker_cda05830f4c73fa6e9540e44dbc311a8 = L.circleMarker(
+                [40.74763870239258, -73.92957305908203],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_8fa9867b12646c1b68f14df3b6d6c947 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c7cacf214a47bfb08fcd1b6768f973d8 = $(`<div id="html_c7cacf214a47bfb08fcd1b6768f973d8" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 496m</div>`)[0];
+                popup_8fa9867b12646c1b68f14df3b6d6c947.setContent(html_c7cacf214a47bfb08fcd1b6768f973d8);
+            
+        
+
+        circle_marker_cda05830f4c73fa6e9540e44dbc311a8.bindPopup(popup_8fa9867b12646c1b68f14df3b6d6c947)
+        ;
+
+        
+    
+    
+            var poly_line_7b8e2daf9375cb49026ec301625b1662 = L.polyline(
+                [[40.8082160949707, -73.8569107055664], [40.81263732910156, -73.85713195800781]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_13336c74a9f649aeec4a100f306cbec4 = L.circleMarker(
+                [40.8082160949707, -73.8569107055664],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_90c884b8fa3aad778ddbac93bcac6b1e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2491c8136f17ee7a8b2df79a0461acfa = $(`<div id="html_2491c8136f17ee7a8b2df79a0461acfa" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>1631 UNDERHILL AVE, Bronx, NY 10473<br>Error: 492m</div>`)[0];
+                popup_90c884b8fa3aad778ddbac93bcac6b1e.setContent(html_2491c8136f17ee7a8b2df79a0461acfa);
+            
+        
+
+        circle_marker_13336c74a9f649aeec4a100f306cbec4.bindPopup(popup_90c884b8fa3aad778ddbac93bcac6b1e)
+        ;
+
+        
+    
+    
+            var circle_marker_d75c00c9cfa8fd6d9988d614dd7ec97c = L.circleMarker(
+                [40.81263732910156, -73.85713195800781],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_0af4185675c7ea0bc02b07061e516503 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8af6a1fe9825a568197b770b7b07e3bb = $(`<div id="html_8af6a1fe9825a568197b770b7b07e3bb" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 492m</div>`)[0];
+                popup_0af4185675c7ea0bc02b07061e516503.setContent(html_8af6a1fe9825a568197b770b7b07e3bb);
+            
+        
+
+        circle_marker_d75c00c9cfa8fd6d9988d614dd7ec97c.bindPopup(popup_0af4185675c7ea0bc02b07061e516503)
+        ;
+
+        
+    
+    
+            var poly_line_2b6689567bc1a2c7a68beda578d72571 = L.polyline(
+                [[40.87179183959961, -73.8287353515625], [40.87605667114258, -73.82731628417969]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_4c7a976beac7ca84b318a808cfb96d3b = L.circleMarker(
+                [40.87179183959961, -73.8287353515625],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_5cc53056640705d461781c4ffa3d0420 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ec6f9b3152791ee1a17f7abe9450afef = $(`<div id="html_ec6f9b3152791ee1a17f7abe9450afef" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>44 ADLER PL, Bronx, NY 10475<br>Error: 489m</div>`)[0];
+                popup_5cc53056640705d461781c4ffa3d0420.setContent(html_ec6f9b3152791ee1a17f7abe9450afef);
+            
+        
+
+        circle_marker_4c7a976beac7ca84b318a808cfb96d3b.bindPopup(popup_5cc53056640705d461781c4ffa3d0420)
+        ;
+
+        
+    
+    
+            var circle_marker_834dd6a75d5577f9bd9b989a2d9581f7 = L.circleMarker(
+                [40.87605667114258, -73.82731628417969],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_f00a760c471045ea113536370fd9d2c6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a66fff30bff043608ac862ccc49947dc = $(`<div id="html_a66fff30bff043608ac862ccc49947dc" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 489m</div>`)[0];
+                popup_f00a760c471045ea113536370fd9d2c6.setContent(html_a66fff30bff043608ac862ccc49947dc);
+            
+        
+
+        circle_marker_834dd6a75d5577f9bd9b989a2d9581f7.bindPopup(popup_f00a760c471045ea113536370fd9d2c6)
+        ;
+
+        
+    
+    
+            var poly_line_9e6e50c2e35c131badaf2aa283b7e6c3 = L.polyline(
+                [[40.88261032104492, -73.8837890625], [40.88698196411133, -73.88323974609375]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_f1cc7696aa15466f7f246e39f10ce826 = L.circleMarker(
+                [40.88261032104492, -73.8837890625],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_4ff5843de6f73c3367003bb8a8f86a58 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c41c13906368fd4ed31a79a3b8eb50b = $(`<div id="html_4c41c13906368fd4ed31a79a3b8eb50b" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>3424 GATES PL, Bronx, NY 10467<br>Error: 488m</div>`)[0];
+                popup_4ff5843de6f73c3367003bb8a8f86a58.setContent(html_4c41c13906368fd4ed31a79a3b8eb50b);
+            
+        
+
+        circle_marker_f1cc7696aa15466f7f246e39f10ce826.bindPopup(popup_4ff5843de6f73c3367003bb8a8f86a58)
+        ;
+
+        
+    
+    
+            var circle_marker_d4ac1e6eba8e63dcf2a031bca4ba62f2 = L.circleMarker(
+                [40.88698196411133, -73.88323974609375],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_c50b8071a7f4c17df64e524d29966178 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a900ee09bcd949f25e274a4ba6c7621d = $(`<div id="html_a900ee09bcd949f25e274a4ba6c7621d" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 488m</div>`)[0];
+                popup_c50b8071a7f4c17df64e524d29966178.setContent(html_a900ee09bcd949f25e274a4ba6c7621d);
+            
+        
+
+        circle_marker_d4ac1e6eba8e63dcf2a031bca4ba62f2.bindPopup(popup_c50b8071a7f4c17df64e524d29966178)
+        ;
+
+        
+    
+    
+            var poly_line_0ae04a55a099696f1198cec10f57020c = L.polyline(
+                [[40.72995376586914, -73.94172668457031], [40.72687530517578, -73.93767547607422]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_25911b6f8f8d3a8126d73e8eac3906db = L.circleMarker(
+                [40.72995376586914, -73.94172668457031],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_d4808084866992e8c18d5daa4bb1e4b2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c0afb9a49d61b5b93021d38c2e9994b8 = $(`<div id="html_c0afb9a49d61b5b93021d38c2e9994b8" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>376 KINGSLAND AVE, Brooklyn, NY 11222<br>Error: 483m</div>`)[0];
+                popup_d4808084866992e8c18d5daa4bb1e4b2.setContent(html_c0afb9a49d61b5b93021d38c2e9994b8);
+            
+        
+
+        circle_marker_25911b6f8f8d3a8126d73e8eac3906db.bindPopup(popup_d4808084866992e8c18d5daa4bb1e4b2)
+        ;
+
+        
+    
+    
+            var circle_marker_3f02aab134e1f2d6dfd3ee5102a67465 = L.circleMarker(
+                [40.72687530517578, -73.93767547607422],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_35e556f385f3533b521656b5a482ab0b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7683ebfcee267deb9fe189be9df272e9 = $(`<div id="html_7683ebfcee267deb9fe189be9df272e9" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 483m</div>`)[0];
+                popup_35e556f385f3533b521656b5a482ab0b.setContent(html_7683ebfcee267deb9fe189be9df272e9);
+            
+        
+
+        circle_marker_3f02aab134e1f2d6dfd3ee5102a67465.bindPopup(popup_35e556f385f3533b521656b5a482ab0b)
+        ;
+
+        
+    
+    
+            var poly_line_3c52cfbdf437993f9db5e7bdbaa67c97 = L.polyline(
+                [[40.60387420654297, -73.74481964111328], [40.6019401550293, -73.73973846435547]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_bec8aa4f44de16254cafb8de1add75e6 = L.circleMarker(
+                [40.60387420654297, -73.74481964111328],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_870b10d6d28d9c93d7abccf0e5d7b6b2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0f090e696c2cf2af8d1f7b7cecab97a5 = $(`<div id="html_0f090e696c2cf2af8d1f7b7cecab97a5" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>746 MOBILE RD, Queens, NY 11691<br>Error: 480m</div>`)[0];
+                popup_870b10d6d28d9c93d7abccf0e5d7b6b2.setContent(html_0f090e696c2cf2af8d1f7b7cecab97a5);
+            
+        
+
+        circle_marker_bec8aa4f44de16254cafb8de1add75e6.bindPopup(popup_870b10d6d28d9c93d7abccf0e5d7b6b2)
+        ;
+
+        
+    
+    
+            var circle_marker_ae0728232d1f3968ba367ed16ceaccd5 = L.circleMarker(
+                [40.6019401550293, -73.73973846435547],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_4537256931c3f06ac15c3febc0f725f7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5f0c29660efca851b3f680e053c6449e = $(`<div id="html_5f0c29660efca851b3f680e053c6449e" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 480m</div>`)[0];
+                popup_4537256931c3f06ac15c3febc0f725f7.setContent(html_5f0c29660efca851b3f680e053c6449e);
+            
+        
+
+        circle_marker_ae0728232d1f3968ba367ed16ceaccd5.bindPopup(popup_4537256931c3f06ac15c3febc0f725f7)
+        ;
+
+        
+    
+    
+            var poly_line_012b9412428ea5534f7ee86e979f08fc = L.polyline(
+                [[40.57102584838867, -74.14656066894531], [40.568870544433594, -74.14166259765625]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_024a1d4d1163cb68b0dc3941a2694b91 = L.circleMarker(
+                [40.57102584838867, -74.14656066894531],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_7f4eb13de107710aff1c534872f19797 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a14264f196cf3c3ba575a933c6dca355 = $(`<div id="html_a14264f196cf3c3ba575a933c6dca355" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>334 CENTER ST, Staten Island, NY 10306<br>Error: 478m</div>`)[0];
+                popup_7f4eb13de107710aff1c534872f19797.setContent(html_a14264f196cf3c3ba575a933c6dca355);
+            
+        
+
+        circle_marker_024a1d4d1163cb68b0dc3941a2694b91.bindPopup(popup_7f4eb13de107710aff1c534872f19797)
+        ;
+
+        
+    
+    
+            var circle_marker_d1a8165392ca4ca6cc8381502649d324 = L.circleMarker(
+                [40.568870544433594, -74.14166259765625],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_12523ee086680372a47277d00ae2cdf8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2e2174562a82b0a926f8d2078312ba32 = $(`<div id="html_2e2174562a82b0a926f8d2078312ba32" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 478m</div>`)[0];
+                popup_12523ee086680372a47277d00ae2cdf8.setContent(html_2e2174562a82b0a926f8d2078312ba32);
+            
+        
+
+        circle_marker_d1a8165392ca4ca6cc8381502649d324.bindPopup(popup_12523ee086680372a47277d00ae2cdf8)
+        ;
+
+        
+    
+    
+            var poly_line_5df104c0d518539ab94a2e8044006f64 = L.polyline(
+                [[40.6004753112793, -73.82389831542969], [40.60364532470703, -73.82020568847656]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_58c756d54d63e7171a62675eee327278 = L.circleMarker(
+                [40.6004753112793, -73.82389831542969],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_fc107640281d3d8ef9ad87a1571b65e7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5ce761ec722016a6bc3b023246405a6a = $(`<div id="html_5ce761ec722016a6bc3b023246405a6a" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>72 W  18 RD, Queens, NY 11693<br>Error: 471m</div>`)[0];
+                popup_fc107640281d3d8ef9ad87a1571b65e7.setContent(html_5ce761ec722016a6bc3b023246405a6a);
+            
+        
+
+        circle_marker_58c756d54d63e7171a62675eee327278.bindPopup(popup_fc107640281d3d8ef9ad87a1571b65e7)
+        ;
+
+        
+    
+    
+            var circle_marker_e1fec3c38bc173015810930c9e821809 = L.circleMarker(
+                [40.60364532470703, -73.82020568847656],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_d0c7c940f12cc207b3ff4ec5d4a78cc0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_06afb6a4505a389506798f8658dbbbd2 = $(`<div id="html_06afb6a4505a389506798f8658dbbbd2" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 471m</div>`)[0];
+                popup_d0c7c940f12cc207b3ff4ec5d4a78cc0.setContent(html_06afb6a4505a389506798f8658dbbbd2);
+            
+        
+
+        circle_marker_e1fec3c38bc173015810930c9e821809.bindPopup(popup_d0c7c940f12cc207b3ff4ec5d4a78cc0)
+        ;
+
+        
+    
+    
+            var poly_line_300315c0ba31e37362de69c486f8cf9a = L.polyline(
+                [[40.524051666259766, -74.22982788085938], [40.520751953125, -74.2332763671875]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_0a2a2397359e7f58f44b9636607afdbd = L.circleMarker(
+                [40.524051666259766, -74.22982788085938],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_bcbbdedb66cced943c5610c2c3e2b744 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_08b50fb567585ce1b07058d5bb97f36b = $(`<div id="html_08b50fb567585ce1b07058d5bb97f36b" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>162 WEINER ST, Staten Island, NY 10309<br>Error: 469m</div>`)[0];
+                popup_bcbbdedb66cced943c5610c2c3e2b744.setContent(html_08b50fb567585ce1b07058d5bb97f36b);
+            
+        
+
+        circle_marker_0a2a2397359e7f58f44b9636607afdbd.bindPopup(popup_bcbbdedb66cced943c5610c2c3e2b744)
+        ;
+
+        
+    
+    
+            var circle_marker_810f33ce982140472889b8cb71da7267 = L.circleMarker(
+                [40.520751953125, -74.2332763671875],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_ea26bf18c256a10e73f234ef07630ee1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b6b6627d39c849de1fe29134b5dae760 = $(`<div id="html_b6b6627d39c849de1fe29134b5dae760" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 469m</div>`)[0];
+                popup_ea26bf18c256a10e73f234ef07630ee1.setContent(html_b6b6627d39c849de1fe29134b5dae760);
+            
+        
+
+        circle_marker_810f33ce982140472889b8cb71da7267.bindPopup(popup_ea26bf18c256a10e73f234ef07630ee1)
+        ;
+
+        
+    
+    
+            var poly_line_addd448c0af501f8759aee8d60b026dc = L.polyline(
+                [[40.908653259277344, -73.89813995361328], [40.91278839111328, -73.89910888671875]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_4b5c4cd97df09cd9b5365dce67629e91 = L.circleMarker(
+                [40.908653259277344, -73.89813995361328],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_614e15cecce288cf213c8f8615f83713 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c50dbc26e34c20aeba1edf3d82e2ca1e = $(`<div id="html_c50dbc26e34c20aeba1edf3d82e2ca1e" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>6037 HUXLEY AVE, Bronx, NY 10471<br>Error: 467m</div>`)[0];
+                popup_614e15cecce288cf213c8f8615f83713.setContent(html_c50dbc26e34c20aeba1edf3d82e2ca1e);
+            
+        
+
+        circle_marker_4b5c4cd97df09cd9b5365dce67629e91.bindPopup(popup_614e15cecce288cf213c8f8615f83713)
+        ;
+
+        
+    
+    
+            var circle_marker_4447c16ec14aa8f3b63d60d5845af4ff = L.circleMarker(
+                [40.91278839111328, -73.89910888671875],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_af0504ad9c905e823a7bb6bc1390b214 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_21738c440e944cff4c7f2942ea79fabb = $(`<div id="html_21738c440e944cff4c7f2942ea79fabb" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 467m</div>`)[0];
+                popup_af0504ad9c905e823a7bb6bc1390b214.setContent(html_21738c440e944cff4c7f2942ea79fabb);
+            
+        
+
+        circle_marker_4447c16ec14aa8f3b63d60d5845af4ff.bindPopup(popup_af0504ad9c905e823a7bb6bc1390b214)
+        ;
+
+        
+    
+    
+            var poly_line_a8bac9f9e2d4f297634816c2d6c3e70a = L.polyline(
+                [[40.6403923034668, -73.90769958496094], [40.643096923828125, -73.91192626953125]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_ed902b9be5489b26960056c5f0c9a62a = L.circleMarker(
+                [40.6403923034668, -73.90769958496094],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_3ba0ad44f73394f240172cf5411d19a6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_90157ad25589f273dfc7e792e6e74705 = $(`<div id="html_90157ad25589f273dfc7e792e6e74705" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>740 E  89 ST, Brooklyn, NY 11236<br>Error: 467m</div>`)[0];
+                popup_3ba0ad44f73394f240172cf5411d19a6.setContent(html_90157ad25589f273dfc7e792e6e74705);
+            
+        
+
+        circle_marker_ed902b9be5489b26960056c5f0c9a62a.bindPopup(popup_3ba0ad44f73394f240172cf5411d19a6)
+        ;
+
+        
+    
+    
+            var circle_marker_3194a276f5442daecd2b92eb31178ba8 = L.circleMarker(
+                [40.643096923828125, -73.91192626953125],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_5e399e0989009a027171185ce45ab3d0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c0c933667fdd8a6ad72bb441adc3c73c = $(`<div id="html_c0c933667fdd8a6ad72bb441adc3c73c" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 467m</div>`)[0];
+                popup_5e399e0989009a027171185ce45ab3d0.setContent(html_c0c933667fdd8a6ad72bb441adc3c73c);
+            
+        
+
+        circle_marker_3194a276f5442daecd2b92eb31178ba8.bindPopup(popup_5e399e0989009a027171185ce45ab3d0)
+        ;
+
+        
+    
+    
+            var poly_line_c9432e508328d6f20471418af26725a8 = L.polyline(
+                [[40.852840423583984, -73.90425872802734], [40.852699279785156, -73.90979766845703]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_fef4b6068b3a75b472ae2f40acab818a = L.circleMarker(
+                [40.852840423583984, -73.90425872802734],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_926547a39a471ef0ac22fd503e520394 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2e453d9599d057d7d4f62b1863e78a71 = $(`<div id="html_2e453d9599d057d7d4f62b1863e78a71" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>165 E  BURNSIDE AVE, Bronx, NY 10453<br>Error: 466m</div>`)[0];
+                popup_926547a39a471ef0ac22fd503e520394.setContent(html_2e453d9599d057d7d4f62b1863e78a71);
+            
+        
+
+        circle_marker_fef4b6068b3a75b472ae2f40acab818a.bindPopup(popup_926547a39a471ef0ac22fd503e520394)
+        ;
+
+        
+    
+    
+            var circle_marker_3622d66256927e4e5942ad15fac997d4 = L.circleMarker(
+                [40.852699279785156, -73.90979766845703],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_7d11763e1da6dae3e092eeda540801f1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3adbf95b2e38f16b80d4cc16ea985011 = $(`<div id="html_3adbf95b2e38f16b80d4cc16ea985011" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 466m</div>`)[0];
+                popup_7d11763e1da6dae3e092eeda540801f1.setContent(html_3adbf95b2e38f16b80d4cc16ea985011);
+            
+        
+
+        circle_marker_3622d66256927e4e5942ad15fac997d4.bindPopup(popup_7d11763e1da6dae3e092eeda540801f1)
+        ;
+
+        
+    
+    
+            var poly_line_5c908798d9e452ae8a53997028460eef = L.polyline(
+                [[40.89948654174805, -73.8564453125], [40.90355682373047, -73.85560607910156]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_301a8172616126870bfd12e0123e792c = L.circleMarker(
+                [40.89948654174805, -73.8564453125],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_60a13d0465839606d999af4e6060a016 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_10f2f6d5661b850244164fc17037bcea = $(`<div id="html_10f2f6d5661b850244164fc17037bcea" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>635 NEREID AVE, Bronx, NY 10470<br>Error: 458m</div>`)[0];
+                popup_60a13d0465839606d999af4e6060a016.setContent(html_10f2f6d5661b850244164fc17037bcea);
+            
+        
+
+        circle_marker_301a8172616126870bfd12e0123e792c.bindPopup(popup_60a13d0465839606d999af4e6060a016)
+        ;
+
+        
+    
+    
+            var circle_marker_812313382f7a7e7aec15e4bed6e514d9 = L.circleMarker(
+                [40.90355682373047, -73.85560607910156],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_027b81edf6ab2fee1786947f9e902b55 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c314336b234d770f17e192e3dd5865f6 = $(`<div id="html_c314336b234d770f17e192e3dd5865f6" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 458m</div>`)[0];
+                popup_027b81edf6ab2fee1786947f9e902b55.setContent(html_c314336b234d770f17e192e3dd5865f6);
+            
+        
+
+        circle_marker_812313382f7a7e7aec15e4bed6e514d9.bindPopup(popup_027b81edf6ab2fee1786947f9e902b55)
+        ;
+
+        
+    
+    
+            var poly_line_fbc1b639e8a4c33bb3f1b651cac979f7 = L.polyline(
+                [[40.51432418823242, -74.24321746826172], [40.51242446899414, -74.24800872802734]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_834d1802fc9435a87bd7cb74104e56a7 = L.circleMarker(
+                [40.51432418823242, -74.24321746826172],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_f29ca18985083939c1cc1123e047baff = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d6d9823fb73e7180ce69bf4e489dffe0 = $(`<div id="html_d6d9823fb73e7180ce69bf4e489dffe0" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>153 FISHER AVE, Staten Island, NY 10307<br>Error: 457m</div>`)[0];
+                popup_f29ca18985083939c1cc1123e047baff.setContent(html_d6d9823fb73e7180ce69bf4e489dffe0);
+            
+        
+
+        circle_marker_834d1802fc9435a87bd7cb74104e56a7.bindPopup(popup_f29ca18985083939c1cc1123e047baff)
+        ;
+
+        
+    
+    
+            var circle_marker_a34af3e9f7b07c3da7400688524916a3 = L.circleMarker(
+                [40.51242446899414, -74.24800872802734],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_654edcabf8ade9aeb5886eb5ec566734 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5f5ad461124646bccfe1c26e3868eb5a = $(`<div id="html_5f5ad461124646bccfe1c26e3868eb5a" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 457m</div>`)[0];
+                popup_654edcabf8ade9aeb5886eb5ec566734.setContent(html_5f5ad461124646bccfe1c26e3868eb5a);
+            
+        
+
+        circle_marker_a34af3e9f7b07c3da7400688524916a3.bindPopup(popup_654edcabf8ade9aeb5886eb5ec566734)
+        ;
+
+        
+    
+    
+            var poly_line_22d15b82b5141c6b1530954fbc5c328c = L.polyline(
+                [[40.7231330871582, -74.0029525756836], [40.72024154663086, -74.00666809082031]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_43aade1c31bcefb31f4e25fa58c1e443 = L.circleMarker(
+                [40.7231330871582, -74.0029525756836],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_61cc6d01e26da62e0fe39d0560235259 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bc843d181d86b08a1bc1939bd459737f = $(`<div id="html_bc843d181d86b08a1bc1939bd459737f" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>363 W  BROADWAY, Manhattan, NY 10013<br>Error: 449m</div>`)[0];
+                popup_61cc6d01e26da62e0fe39d0560235259.setContent(html_bc843d181d86b08a1bc1939bd459737f);
+            
+        
+
+        circle_marker_43aade1c31bcefb31f4e25fa58c1e443.bindPopup(popup_61cc6d01e26da62e0fe39d0560235259)
+        ;
+
+        
+    
+    
+            var circle_marker_4c5ba1c508ee998ccbf2bc3f02c33972 = L.circleMarker(
+                [40.72024154663086, -74.00666809082031],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_76f8e87b437665c888fa179d43610577 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d9c1afd415305e8e82d70f39defd6d12 = $(`<div id="html_d9c1afd415305e8e82d70f39defd6d12" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 449m</div>`)[0];
+                popup_76f8e87b437665c888fa179d43610577.setContent(html_d9c1afd415305e8e82d70f39defd6d12);
+            
+        
+
+        circle_marker_4c5ba1c508ee998ccbf2bc3f02c33972.bindPopup(popup_76f8e87b437665c888fa179d43610577)
+        ;
+
+        
+    
+    
+            var poly_line_5f64c9800cf7a82f9666728e3cdaeb37 = L.polyline(
+                [[40.616432189941406, -74.03411102294922], [40.619911193847656, -74.0360107421875]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_ca34eb08d36aaa2f6f12a66e611f140e = L.circleMarker(
+                [40.616432189941406, -74.03411102294922],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_7c68171ada25003d3e5066c93f7e56da = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0b94a37f7855dc4e1799677c7cc02de0 = $(`<div id="html_0b94a37f7855dc4e1799677c7cc02de0" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>9606 3 AVE, Brooklyn, NY 11209<br>Error: 419m</div>`)[0];
+                popup_7c68171ada25003d3e5066c93f7e56da.setContent(html_0b94a37f7855dc4e1799677c7cc02de0);
+            
+        
+
+        circle_marker_ca34eb08d36aaa2f6f12a66e611f140e.bindPopup(popup_7c68171ada25003d3e5066c93f7e56da)
+        ;
+
+        
+    
+    
+            var circle_marker_27a585532f81e86d8add1e810e70b2ce = L.circleMarker(
+                [40.619911193847656, -74.0360107421875],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_c17c6a6c2d1570b2e51845cbbe460ba1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_10872441697dd3898605a38a47557e50 = $(`<div id="html_10872441697dd3898605a38a47557e50" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 419m</div>`)[0];
+                popup_c17c6a6c2d1570b2e51845cbbe460ba1.setContent(html_10872441697dd3898605a38a47557e50);
+            
+        
+
+        circle_marker_27a585532f81e86d8add1e810e70b2ce.bindPopup(popup_c17c6a6c2d1570b2e51845cbbe460ba1)
+        ;
+
+        
+    
+    
+            var poly_line_c3a2009922d3cd5047b6a3b1f305c145 = L.polyline(
+                [[40.62193298339844, -74.07320404052734], [40.62234878540039, -74.07810974121094]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_3e6d5ec4e022f8e1c60056b00dba6d36 = L.circleMarker(
+                [40.62193298339844, -74.07320404052734],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_d99e47f7052262e5ac28598eb8f5a8b9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_81b68415253ef8d746e940587da47d30 = $(`<div id="html_81b68415253ef8d746e940587da47d30" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>24 VANDERBILT AVE, Staten Island, NY 10304<br>Error: 417m</div>`)[0];
+                popup_d99e47f7052262e5ac28598eb8f5a8b9.setContent(html_81b68415253ef8d746e940587da47d30);
+            
+        
+
+        circle_marker_3e6d5ec4e022f8e1c60056b00dba6d36.bindPopup(popup_d99e47f7052262e5ac28598eb8f5a8b9)
+        ;
+
+        
+    
+    
+            var circle_marker_65279ef33570965191690a95761c7d93 = L.circleMarker(
+                [40.62234878540039, -74.07810974121094],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_fbaeb3eaa50bf58ee0cf2d39413aeb9f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3841f55dfac7eede86661d86bb8ef853 = $(`<div id="html_3841f55dfac7eede86661d86bb8ef853" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 417m</div>`)[0];
+                popup_fbaeb3eaa50bf58ee0cf2d39413aeb9f.setContent(html_3841f55dfac7eede86661d86bb8ef853);
+            
+        
+
+        circle_marker_65279ef33570965191690a95761c7d93.bindPopup(popup_fbaeb3eaa50bf58ee0cf2d39413aeb9f)
+        ;
+
+        
+    
+    
+            var poly_line_84d49cccf2bad97dbfe5925be2488e4e = L.polyline(
+                [[40.669002532958984, -73.77185821533203], [40.665348052978516, -73.77281951904297]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_8d8aaab12a1418a913e6675de65ebd65 = L.circleMarker(
+                [40.669002532958984, -73.77185821533203],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_1b025623f99c6623aa3f4f313c13b7c2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_63dacbe7ded1a4f470daed7001ac2c1a = $(`<div id="html_63dacbe7ded1a4f470daed7001ac2c1a" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>167-10 144 AVE, Queens, NY 11434<br>Error: 414m</div>`)[0];
+                popup_1b025623f99c6623aa3f4f313c13b7c2.setContent(html_63dacbe7ded1a4f470daed7001ac2c1a);
+            
+        
+
+        circle_marker_8d8aaab12a1418a913e6675de65ebd65.bindPopup(popup_1b025623f99c6623aa3f4f313c13b7c2)
+        ;
+
+        
+    
+    
+            var circle_marker_e411a40783ba81ad6e2a48cb6efda3f2 = L.circleMarker(
+                [40.665348052978516, -73.77281951904297],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_4bc4574826c8cbaa791b386cb446136a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c3fd7e8c6e3d022cfd8126d529437b1 = $(`<div id="html_8c3fd7e8c6e3d022cfd8126d529437b1" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 414m</div>`)[0];
+                popup_4bc4574826c8cbaa791b386cb446136a.setContent(html_8c3fd7e8c6e3d022cfd8126d529437b1);
+            
+        
+
+        circle_marker_e411a40783ba81ad6e2a48cb6efda3f2.bindPopup(popup_4bc4574826c8cbaa791b386cb446136a)
+        ;
+
+        
+    
+    
+            var poly_line_c820b1ec9cc142c46d7d637bbd882258 = L.polyline(
+                [[40.895965576171875, -73.84916687011719], [40.899330139160156, -73.8471450805664]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_360004945cb4c0f883ea4872d327915d = L.circleMarker(
+                [40.895965576171875, -73.84916687011719],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_0ad18c51973cd776f822b81458172c7a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3ee5a00141823664db22229bbdc116ba = $(`<div id="html_3ee5a00141823664db22229bbdc116ba" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>1807 PITMAN AVE, Bronx, NY 10466<br>Error: 411m</div>`)[0];
+                popup_0ad18c51973cd776f822b81458172c7a.setContent(html_3ee5a00141823664db22229bbdc116ba);
+            
+        
+
+        circle_marker_360004945cb4c0f883ea4872d327915d.bindPopup(popup_0ad18c51973cd776f822b81458172c7a)
+        ;
+
+        
+    
+    
+            var circle_marker_582ddaf02cc2a72827326ae9756e8088 = L.circleMarker(
+                [40.899330139160156, -73.8471450805664],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_9eb24b89a4a8e4878beb267bce44593c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_19895836614700bacca6a3b90bdd5823 = $(`<div id="html_19895836614700bacca6a3b90bdd5823" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 411m</div>`)[0];
+                popup_9eb24b89a4a8e4878beb267bce44593c.setContent(html_19895836614700bacca6a3b90bdd5823);
+            
+        
+
+        circle_marker_582ddaf02cc2a72827326ae9756e8088.bindPopup(popup_9eb24b89a4a8e4878beb267bce44593c)
+        ;
+
+        
+    
+    
+            var poly_line_9b5df72d9a69115f2939c6fefd1cd935 = L.polyline(
+                [[40.849403381347656, -73.78824615478516], [40.85165023803711, -73.78437042236328]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_c16cc2ef3c480c945a405087c71ae01a = L.circleMarker(
+                [40.849403381347656, -73.78824615478516],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_e29f5237334a3db0d78a2d321896d638 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_70ebb00fa1b277f5752f11713751fb7d = $(`<div id="html_70ebb00fa1b277f5752f11713751fb7d" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>102 DITMARS ST, Bronx, NY 10464<br>Error: 411m</div>`)[0];
+                popup_e29f5237334a3db0d78a2d321896d638.setContent(html_70ebb00fa1b277f5752f11713751fb7d);
+            
+        
+
+        circle_marker_c16cc2ef3c480c945a405087c71ae01a.bindPopup(popup_e29f5237334a3db0d78a2d321896d638)
+        ;
+
+        
+    
+    
+            var circle_marker_d0bce15cfd609699f348b544fb2d7d0d = L.circleMarker(
+                [40.85165023803711, -73.78437042236328],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_9e28745d953cd06ef9fe3d946db2f5d7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_253469140b55341595d590f4acebabcd = $(`<div id="html_253469140b55341595d590f4acebabcd" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 411m</div>`)[0];
+                popup_9e28745d953cd06ef9fe3d946db2f5d7.setContent(html_253469140b55341595d590f4acebabcd);
+            
+        
+
+        circle_marker_d0bce15cfd609699f348b544fb2d7d0d.bindPopup(popup_9e28745d953cd06ef9fe3d946db2f5d7)
+        ;
+
+        
+    
+    
+            var poly_line_eb811bc003a3a9b2f9a06064a5eca708 = L.polyline(
+                [[40.60453796386719, -74.09601593017578], [40.601036071777344, -74.09449005126953]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_eaa996a134fd7d90ed6841e04b31750c = L.circleMarker(
+                [40.60453796386719, -74.09601593017578],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_f16f42c49c1efcf491eb9108c6ed85ac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ccfd755705acb063fb370cd49e3c5e7b = $(`<div id="html_ccfd755705acb063fb370cd49e3c5e7b" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>125 WILSON TER, Staten Island, NY 10304<br>Error: 410m</div>`)[0];
+                popup_f16f42c49c1efcf491eb9108c6ed85ac.setContent(html_ccfd755705acb063fb370cd49e3c5e7b);
+            
+        
+
+        circle_marker_eaa996a134fd7d90ed6841e04b31750c.bindPopup(popup_f16f42c49c1efcf491eb9108c6ed85ac)
+        ;
+
+        
+    
+    
+            var circle_marker_5b9d46cd4441c1b9727ee6e019cc7eee = L.circleMarker(
+                [40.601036071777344, -74.09449005126953],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_6907e647001eb01130b6581e38b57c74 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee5a2fe333bdc65b4c84f8d66c1a539d = $(`<div id="html_ee5a2fe333bdc65b4c84f8d66c1a539d" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 410m</div>`)[0];
+                popup_6907e647001eb01130b6581e38b57c74.setContent(html_ee5a2fe333bdc65b4c84f8d66c1a539d);
+            
+        
+
+        circle_marker_5b9d46cd4441c1b9727ee6e019cc7eee.bindPopup(popup_6907e647001eb01130b6581e38b57c74)
+        ;
+
+        
+    
+    
+            var poly_line_ee21ddc5fb5fd5854e070a24798ce338 = L.polyline(
+                [[40.6689567565918, -73.81290435791016], [40.66939926147461, -73.80816650390625]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_310110d6925b700c8460a37dbc20b27c = L.circleMarker(
+                [40.6689567565918, -73.81290435791016],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_eadc7e71e4715b30c3768befcd89ad23 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3db84bf9f2c8beb0bcb07df06349f862 = $(`<div id="html_3db84bf9f2c8beb0bcb07df06349f862" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>126-18 135 AVE, Queens, NY 11420<br>Error: 403m</div>`)[0];
+                popup_eadc7e71e4715b30c3768befcd89ad23.setContent(html_3db84bf9f2c8beb0bcb07df06349f862);
+            
+        
+
+        circle_marker_310110d6925b700c8460a37dbc20b27c.bindPopup(popup_eadc7e71e4715b30c3768befcd89ad23)
+        ;
+
+        
+    
+    
+            var circle_marker_5ef11510d4696d30e99dd6b4adcaf426 = L.circleMarker(
+                [40.66939926147461, -73.80816650390625],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_8ce9bb4c7562f76a64928b76cec6e43c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b47ad6c2b07373b4e2e5644f3acea64c = $(`<div id="html_b47ad6c2b07373b4e2e5644f3acea64c" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 403m</div>`)[0];
+                popup_8ce9bb4c7562f76a64928b76cec6e43c.setContent(html_b47ad6c2b07373b4e2e5644f3acea64c);
+            
+        
+
+        circle_marker_5ef11510d4696d30e99dd6b4adcaf426.bindPopup(popup_8ce9bb4c7562f76a64928b76cec6e43c)
+        ;
+
+        
+    
+    
+            var poly_line_916cc3af2e3f1e71d5497851e2636e40 = L.polyline(
+                [[40.82160186767578, -73.85446166992188], [40.82318878173828, -73.85026550292969]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_fd73a9859a3907f373ca66e604363e9f = L.circleMarker(
+                [40.82160186767578, -73.85446166992188],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_7a40d4f6f294dd56e2f8192911cc4165 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5f8f55cae68ae06d7f50ff2e77ed1978 = $(`<div id="html_5f8f55cae68ae06d7f50ff2e77ed1978" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>2056 VIRGIL PL, Bronx, NY 10473<br>Error: 395m</div>`)[0];
+                popup_7a40d4f6f294dd56e2f8192911cc4165.setContent(html_5f8f55cae68ae06d7f50ff2e77ed1978);
+            
+        
+
+        circle_marker_fd73a9859a3907f373ca66e604363e9f.bindPopup(popup_7a40d4f6f294dd56e2f8192911cc4165)
+        ;
+
+        
+    
+    
+            var circle_marker_6b4254290846717d88e9b0505cada46b = L.circleMarker(
+                [40.82318878173828, -73.85026550292969],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_3a1760f9d142740069bd59a4b45a2cfb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d956031f97d0a790679c8cc308a18cfc = $(`<div id="html_d956031f97d0a790679c8cc308a18cfc" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 395m</div>`)[0];
+                popup_3a1760f9d142740069bd59a4b45a2cfb.setContent(html_d956031f97d0a790679c8cc308a18cfc);
+            
+        
+
+        circle_marker_6b4254290846717d88e9b0505cada46b.bindPopup(popup_3a1760f9d142740069bd59a4b45a2cfb)
+        ;
+
+        
+    
+    
+            var poly_line_86cf49acc6f8d6bdc7cda553a1c0d4c4 = L.polyline(
+                [[40.680015563964844, -73.89580535888672], [40.68233108520508, -73.89230346679688]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_ae9d54f489f9dd137c3e03b863737994 = L.circleMarker(
+                [40.680015563964844, -73.89580535888672],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_3077f809711a5ee496377d7b9a2d8ac3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_26f1363921ee12fe8cc8178fdc1184ae = $(`<div id="html_26f1363921ee12fe8cc8178fdc1184ae" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>2 SUNNYSIDE AVE, Brooklyn, NY 11207<br>Error: 392m</div>`)[0];
+                popup_3077f809711a5ee496377d7b9a2d8ac3.setContent(html_26f1363921ee12fe8cc8178fdc1184ae);
+            
+        
+
+        circle_marker_ae9d54f489f9dd137c3e03b863737994.bindPopup(popup_3077f809711a5ee496377d7b9a2d8ac3)
+        ;
+
+        
+    
+    
+            var circle_marker_396935367c4a13e8fbc79fe62f0ef1d1 = L.circleMarker(
+                [40.68233108520508, -73.89230346679688],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_158bfc06e4552533df90370bec8f2805 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_40544ee5520db34192f17325fd16f2bd = $(`<div id="html_40544ee5520db34192f17325fd16f2bd" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 392m</div>`)[0];
+                popup_158bfc06e4552533df90370bec8f2805.setContent(html_40544ee5520db34192f17325fd16f2bd);
+            
+        
+
+        circle_marker_396935367c4a13e8fbc79fe62f0ef1d1.bindPopup(popup_158bfc06e4552533df90370bec8f2805)
+        ;
+
+        
+    
+    
+            var poly_line_dc81c6133072daf0c1f2ed0bb9197101 = L.polyline(
+                [[40.67192077636719, -73.78533172607422], [40.66873550415039, -73.78340148925781]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_4b1d22602aab977f5efebdad44f2026d = L.circleMarker(
+                [40.67192077636719, -73.78533172607422],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_aeebf9e080f17cc397b534d24ff7faf7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_66c527dda8df6b2ebf89e222c56438d9 = $(`<div id="html_66c527dda8df6b2ebf89e222c56438d9" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>152-12 ROCKAWAY BLVD, Queens, NY 11434<br>Error: 390m</div>`)[0];
+                popup_aeebf9e080f17cc397b534d24ff7faf7.setContent(html_66c527dda8df6b2ebf89e222c56438d9);
+            
+        
+
+        circle_marker_4b1d22602aab977f5efebdad44f2026d.bindPopup(popup_aeebf9e080f17cc397b534d24ff7faf7)
+        ;
+
+        
+    
+    
+            var circle_marker_2a26a4b9b16ae1c2b98505646c5ec70e = L.circleMarker(
+                [40.66873550415039, -73.78340148925781],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_ce8cf5129d703e91dcacd3e103dedc71 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f723b583802d62fdc90b34d64a0923be = $(`<div id="html_f723b583802d62fdc90b34d64a0923be" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 390m</div>`)[0];
+                popup_ce8cf5129d703e91dcacd3e103dedc71.setContent(html_f723b583802d62fdc90b34d64a0923be);
+            
+        
+
+        circle_marker_2a26a4b9b16ae1c2b98505646c5ec70e.bindPopup(popup_ce8cf5129d703e91dcacd3e103dedc71)
+        ;
+
+        
+    
+    
+            var poly_line_6b218093094d342ec0423d54737d27c5 = L.polyline(
+                [[40.57514190673828, -74.13920593261719], [40.57275390625, -74.1425552368164]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_adc3f97e5e19aeb1734267880feebd7f = L.circleMarker(
+                [40.57514190673828, -74.13920593261719],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_861f0b68e44a4362257968a723180f89 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3a3e8a66448fe11fd3d3c031ab0fb638 = $(`<div id="html_3a3e8a66448fe11fd3d3c031ab0fb638" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>361 ST GEORGE RD, Staten Island, NY 10306<br>Error: 388m</div>`)[0];
+                popup_861f0b68e44a4362257968a723180f89.setContent(html_3a3e8a66448fe11fd3d3c031ab0fb638);
+            
+        
+
+        circle_marker_adc3f97e5e19aeb1734267880feebd7f.bindPopup(popup_861f0b68e44a4362257968a723180f89)
+        ;
+
+        
+    
+    
+            var circle_marker_7b2efcf18ee54c5caadb5289bc695335 = L.circleMarker(
+                [40.57275390625, -74.1425552368164],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_1c6b9d93b919483ea417aa6b05f655ec = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fd80f83cec417bf4e5a1121c5a36b59f = $(`<div id="html_fd80f83cec417bf4e5a1121c5a36b59f" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 388m</div>`)[0];
+                popup_1c6b9d93b919483ea417aa6b05f655ec.setContent(html_fd80f83cec417bf4e5a1121c5a36b59f);
+            
+        
+
+        circle_marker_7b2efcf18ee54c5caadb5289bc695335.bindPopup(popup_1c6b9d93b919483ea417aa6b05f655ec)
+        ;
+
+        
+    
+    
+            var poly_line_3e2fbaf0958f964ebbafb9318e39dc4b = L.polyline(
+                [[40.581539154052734, -73.83158874511719], [40.5804557800293, -73.82722473144531]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_a1e82c9ba5f116bc6f9bac78c02bbf3f = L.circleMarker(
+                [40.581539154052734, -73.83158874511719],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_06a4ae31675031ec2f2fb19387c9836f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_98a19138c30871d642deedcf59bdd477 = $(`<div id="html_98a19138c30871d642deedcf59bdd477" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>109-20 ROCKAWAY BEACH BLVD, Queens, NY 11694<br>Error: 388m</div>`)[0];
+                popup_06a4ae31675031ec2f2fb19387c9836f.setContent(html_98a19138c30871d642deedcf59bdd477);
+            
+        
+
+        circle_marker_a1e82c9ba5f116bc6f9bac78c02bbf3f.bindPopup(popup_06a4ae31675031ec2f2fb19387c9836f)
+        ;
+
+        
+    
+    
+            var circle_marker_1bc5f99929e30418de5e6eafae4992fb = L.circleMarker(
+                [40.5804557800293, -73.82722473144531],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_4b7d19a5194b411fca3f45e563099bfa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c33a3dee7077c5476b3ac1ccb19f7aeb = $(`<div id="html_c33a3dee7077c5476b3ac1ccb19f7aeb" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 388m</div>`)[0];
+                popup_4b7d19a5194b411fca3f45e563099bfa.setContent(html_c33a3dee7077c5476b3ac1ccb19f7aeb);
+            
+        
+
+        circle_marker_1bc5f99929e30418de5e6eafae4992fb.bindPopup(popup_4b7d19a5194b411fca3f45e563099bfa)
+        ;
+
+        
+    
+    
+            var poly_line_15a9e2d649011ee1ca4690b467d1d0fb = L.polyline(
+                [[40.62027359008789, -74.15567779541016], [40.62028121948242, -74.16026306152344]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_eeb7eb55441202477e7c31697ec9e439 = L.circleMarker(
+                [40.62027359008789, -74.15567779541016],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_9d913c756b907a25ff03815ec96040d0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2d0d8bac9d7287772b428f497a2a99eb = $(`<div id="html_2d0d8bac9d7287772b428f497a2a99eb" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>51 ADA DR, Staten Island, NY 10314<br>Error: 387m</div>`)[0];
+                popup_9d913c756b907a25ff03815ec96040d0.setContent(html_2d0d8bac9d7287772b428f497a2a99eb);
+            
+        
+
+        circle_marker_eeb7eb55441202477e7c31697ec9e439.bindPopup(popup_9d913c756b907a25ff03815ec96040d0)
+        ;
+
+        
+    
+    
+            var circle_marker_e1a2cd38dda07d0372221083ff72ea4f = L.circleMarker(
+                [40.62028121948242, -74.16026306152344],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_552804bffeb50a402de9667be5210ba4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bcc5ed91adcddb2548f13bf930c0fcb8 = $(`<div id="html_bcc5ed91adcddb2548f13bf930c0fcb8" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 387m</div>`)[0];
+                popup_552804bffeb50a402de9667be5210ba4.setContent(html_bcc5ed91adcddb2548f13bf930c0fcb8);
+            
+        
+
+        circle_marker_e1a2cd38dda07d0372221083ff72ea4f.bindPopup(popup_552804bffeb50a402de9667be5210ba4)
+        ;
+
+        
+    
+    
+            var poly_line_01ff2bdbb553297ac57592e63cfd1b12 = L.polyline(
+                [[40.59340286254883, -74.1849365234375], [40.592464447021484, -74.1893081665039]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_e01e24c14ad993eda66b98ff80d09e02 = L.circleMarker(
+                [40.59340286254883, -74.1849365234375],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_e23185388529164611046e2ce523ad44 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_49733f23040f801393ccbcea0070fc8f = $(`<div id="html_49733f23040f801393ccbcea0070fc8f" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>69 TOWERS LN, Staten Island, NY 10314<br>Error: 384m</div>`)[0];
+                popup_e23185388529164611046e2ce523ad44.setContent(html_49733f23040f801393ccbcea0070fc8f);
+            
+        
+
+        circle_marker_e01e24c14ad993eda66b98ff80d09e02.bindPopup(popup_e23185388529164611046e2ce523ad44)
+        ;
+
+        
+    
+    
+            var circle_marker_0302654f5b46171aabe473a59cabf61b = L.circleMarker(
+                [40.592464447021484, -74.1893081665039],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_846dd5fd01755e81e5e208fc2abbf55a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d29c7215db7b92f99d139517d81b2408 = $(`<div id="html_d29c7215db7b92f99d139517d81b2408" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 384m</div>`)[0];
+                popup_846dd5fd01755e81e5e208fc2abbf55a.setContent(html_d29c7215db7b92f99d139517d81b2408);
+            
+        
+
+        circle_marker_0302654f5b46171aabe473a59cabf61b.bindPopup(popup_846dd5fd01755e81e5e208fc2abbf55a)
+        ;
+
+        
+    
+    
+            var poly_line_ceca78b22549039fea0e1d3dd70369c2 = L.polyline(
+                [[40.712711334228516, -73.83496856689453], [40.71513748168945, -73.83819580078125]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_a88c9952e697516b8b33313b57a3f99a = L.circleMarker(
+                [40.712711334228516, -73.83496856689453],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_42132a0566c3ffcf2b44a1582d9f841c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a54c9d5dcde68e421d62bf2a7f22f3ba = $(`<div id="html_a54c9d5dcde68e421d62bf2a7f22f3ba" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>422 BURNS ST, Queens, NY 11375<br>Error: 383m</div>`)[0];
+                popup_42132a0566c3ffcf2b44a1582d9f841c.setContent(html_a54c9d5dcde68e421d62bf2a7f22f3ba);
+            
+        
+
+        circle_marker_a88c9952e697516b8b33313b57a3f99a.bindPopup(popup_42132a0566c3ffcf2b44a1582d9f841c)
+        ;
+
+        
+    
+    
+            var circle_marker_2df0d8a6d99c7c199846117814560a7c = L.circleMarker(
+                [40.71513748168945, -73.83819580078125],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_add18fe53ef735e6bad20b20b734b7df = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01430ba65d2cfe62fddc1d360c54082d = $(`<div id="html_01430ba65d2cfe62fddc1d360c54082d" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 383m</div>`)[0];
+                popup_add18fe53ef735e6bad20b20b734b7df.setContent(html_01430ba65d2cfe62fddc1d360c54082d);
+            
+        
+
+        circle_marker_2df0d8a6d99c7c199846117814560a7c.bindPopup(popup_add18fe53ef735e6bad20b20b734b7df)
+        ;
+
+        
+    
+    
+            var poly_line_a1b2daaeaf921303d607bf7e6d70e501 = L.polyline(
+                [[40.63929748535156, -74.02742004394531], [40.63619613647461, -74.02938842773438]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_1012fe66ae4b3c2eecee5da004383e77 = L.circleMarker(
+                [40.63929748535156, -74.02742004394531],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_f6621006bf81eed0a29e0ce35933d8f3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8a64f1347ea85e452cb03d2750afb3c0 = $(`<div id="html_8a64f1347ea85e452cb03d2750afb3c0" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>6644 RIDGE BLVD, Brooklyn, NY 11220<br>Error: 383m</div>`)[0];
+                popup_f6621006bf81eed0a29e0ce35933d8f3.setContent(html_8a64f1347ea85e452cb03d2750afb3c0);
+            
+        
+
+        circle_marker_1012fe66ae4b3c2eecee5da004383e77.bindPopup(popup_f6621006bf81eed0a29e0ce35933d8f3)
+        ;
+
+        
+    
+    
+            var circle_marker_829af941d635ce810a361b7bb108f857 = L.circleMarker(
+                [40.63619613647461, -74.02938842773438],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_308d3c55fe9fd82ad90af7cef8b422cd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aae80104a80d6abe0c41f3249082376e = $(`<div id="html_aae80104a80d6abe0c41f3249082376e" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 383m</div>`)[0];
+                popup_308d3c55fe9fd82ad90af7cef8b422cd.setContent(html_aae80104a80d6abe0c41f3249082376e);
+            
+        
+
+        circle_marker_829af941d635ce810a361b7bb108f857.bindPopup(popup_308d3c55fe9fd82ad90af7cef8b422cd)
+        ;
+
+        
+    
+    
+            var poly_line_cb5b2385dc9fc25c936069ec93140698 = L.polyline(
+                [[40.87823486328125, -73.89938354492188], [40.88008499145508, -73.9032211303711]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_3e8f0b0f2efee1ba1b82591fa5292e5e = L.circleMarker(
+                [40.87823486328125, -73.89938354492188],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_e9a8ea4f07ae1ecc8f199ae6a54b82f2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_936427ec1ab1eaedea4221fdb8866674 = $(`<div id="html_936427ec1ab1eaedea4221fdb8866674" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>3143 KINGSBRIDGE TER, Bronx, NY 10463<br>Error: 383m</div>`)[0];
+                popup_e9a8ea4f07ae1ecc8f199ae6a54b82f2.setContent(html_936427ec1ab1eaedea4221fdb8866674);
+            
+        
+
+        circle_marker_3e8f0b0f2efee1ba1b82591fa5292e5e.bindPopup(popup_e9a8ea4f07ae1ecc8f199ae6a54b82f2)
+        ;
+
+        
+    
+    
+            var circle_marker_05e5c0def7f0f5057c3326bb4f336adc = L.circleMarker(
+                [40.88008499145508, -73.9032211303711],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_ef35819de76aee83ab22735873c3029d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1733ae5d7f96738e7bb80fb09863d66a = $(`<div id="html_1733ae5d7f96738e7bb80fb09863d66a" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 383m</div>`)[0];
+                popup_ef35819de76aee83ab22735873c3029d.setContent(html_1733ae5d7f96738e7bb80fb09863d66a);
+            
+        
+
+        circle_marker_05e5c0def7f0f5057c3326bb4f336adc.bindPopup(popup_ef35819de76aee83ab22735873c3029d)
+        ;
+
+        
+    
+    
+            var poly_line_2f2c4525ee75147a57ab83e442f084ac = L.polyline(
+                [[40.65800476074219, -73.95050048828125], [40.6613883972168, -73.95130920410156]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_e67c232450cbf30c18116f5b625e6293 = L.circleMarker(
+                [40.65800476074219, -73.95050048828125],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_12d3b5d8a4cad55c13b07b403230f3ee = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_90aadb2acc88870606b2422169ca7707 = $(`<div id="html_90aadb2acc88870606b2422169ca7707" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>1204 NOSTRAND AVE, Brooklyn, NY 11225<br>Error: 382m</div>`)[0];
+                popup_12d3b5d8a4cad55c13b07b403230f3ee.setContent(html_90aadb2acc88870606b2422169ca7707);
+            
+        
+
+        circle_marker_e67c232450cbf30c18116f5b625e6293.bindPopup(popup_12d3b5d8a4cad55c13b07b403230f3ee)
+        ;
+
+        
+    
+    
+            var circle_marker_b20c0a66fdf8e4e2ede3b164b8969710 = L.circleMarker(
+                [40.6613883972168, -73.95130920410156],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_a5b268d5322cfb387d78543be0f2a9b4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_321d56d6db933c85fca92e7851e36bb0 = $(`<div id="html_321d56d6db933c85fca92e7851e36bb0" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 382m</div>`)[0];
+                popup_a5b268d5322cfb387d78543be0f2a9b4.setContent(html_321d56d6db933c85fca92e7851e36bb0);
+            
+        
+
+        circle_marker_b20c0a66fdf8e4e2ede3b164b8969710.bindPopup(popup_a5b268d5322cfb387d78543be0f2a9b4)
+        ;
+
+        
+    
+    
+            var poly_line_79f8783407083d07a2ac904981557809 = L.polyline(
+                [[40.591835021972656, -73.98775482177734], [40.58859634399414, -73.98902130126953]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_d91d15da212ca3fc1df9697728252375 = L.circleMarker(
+                [40.591835021972656, -73.98775482177734],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_17d3aa9b1c0e75957edf9f5be7938a11 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_18967290dff681cc73f2a0a7af81f65c = $(`<div id="html_18967290dff681cc73f2a0a7af81f65c" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>128 BAY 44 ST, Brooklyn, NY 11214<br>Error: 376m</div>`)[0];
+                popup_17d3aa9b1c0e75957edf9f5be7938a11.setContent(html_18967290dff681cc73f2a0a7af81f65c);
+            
+        
+
+        circle_marker_d91d15da212ca3fc1df9697728252375.bindPopup(popup_17d3aa9b1c0e75957edf9f5be7938a11)
+        ;
+
+        
+    
+    
+            var circle_marker_8eb8ef7dddb7d5093165d8b0a729cdca = L.circleMarker(
+                [40.58859634399414, -73.98902130126953],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_2f1eb3324d65f839793ce9267af9a28f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e1a7912c729139c591338ac64b914467 = $(`<div id="html_e1a7912c729139c591338ac64b914467" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 376m</div>`)[0];
+                popup_2f1eb3324d65f839793ce9267af9a28f.setContent(html_e1a7912c729139c591338ac64b914467);
+            
+        
+
+        circle_marker_8eb8ef7dddb7d5093165d8b0a729cdca.bindPopup(popup_2f1eb3324d65f839793ce9267af9a28f)
+        ;
+
+        
+    
+    
+            var poly_line_b39aec6782aa56cae82d0c6cf7826657 = L.polyline(
+                [[40.55007553100586, -74.20947265625], [40.54851531982422, -74.21338653564453]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+            var circle_marker_58f726a7f26e702a1961c7f6e4787930 = L.circleMarker(
+                [40.55007553100586, -74.20947265625],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_f24acea26ea028c977447dca7442aaac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e2b252795ff14e49ec7c1903ed858ba8 = $(`<div id="html_e2b252795ff14e49ec7c1903ed858ba8" style="width: 100.0%; height: 100.0%;"><b>Actual</b><br>35 SELKIRK ST, Staten Island, NY 10309<br>Error: 373m</div>`)[0];
+                popup_f24acea26ea028c977447dca7442aaac.setContent(html_e2b252795ff14e49ec7c1903ed858ba8);
+            
+        
+
+        circle_marker_58f726a7f26e702a1961c7f6e4787930.bindPopup(popup_f24acea26ea028c977447dca7442aaac)
+        ;
+
+        
+    
+    
+            var circle_marker_1494928ba37c667565aff4692b6e35ef = L.circleMarker(
+                [40.54851531982422, -74.21338653564453],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+    
+        var popup_930be4eec5920f0c010ff1636bdb404e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1b4054f9479374b7bfcba934e48e3b51 = $(`<div id="html_1b4054f9479374b7bfcba934e48e3b51" style="width: 100.0%; height: 100.0%;"><b>Predicted</b><br>Error: 373m</div>`)[0];
+                popup_930be4eec5920f0c010ff1636bdb404e.setContent(html_1b4054f9479374b7bfcba934e48e3b51);
+            
+        
+
+        circle_marker_1494928ba37c667565aff4692b6e35ef.bindPopup(popup_930be4eec5920f0c010ff1636bdb404e)
+        ;
+
+        
+    
+    
+            tile_layer_d0ed64f66a325e2bd5ba4b5f710fbf77.addTo(map_76eed71a7427a9ab760720ecf9f4facd);
+        
+</script>
+</html>
