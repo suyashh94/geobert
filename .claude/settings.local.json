@@ -9,7 +9,8 @@
       "Bash(find:*)",
       "Bash(cat:*)",
       "Bash(python -m geobert.device:*)",
-      "Bash(python -m pytest:*)"
+      "Bash(python -m pytest:*)",
+      "Bash(huggingface-cli upload:*)"
     ]
   }
 }

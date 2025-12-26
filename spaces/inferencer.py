@@ -16,26 +16,35 @@ from transformers import AutoTokenizer
 class Inferencer:
     """Inference class for GeoBERT geocoding model.
 
-    Downloads model weights from HuggingFace Hub on initialization.
+    Downloads model weights from HuggingFace Hub on initialization,
+    or loads from a local directory if specified.
 
     :param repo_id: HuggingFace Hub repository ID (e.g., 'username/geobert-nyc').
+    :param local_dir: Optional local directory containing model files (for testing).
     :param device: Device to run inference on. If None, auto-detects GPU/CPU.
     :param cache_dir: Optional cache directory for downloaded files.
 
     Example::
 
-        inferencer = Inferencer("username/geobert-nyc")
+        # From HuggingFace Hub
+        inferencer = Inferencer("suyash94/geobert-nyc")
+
+        # From local directory (for testing)
+        inferencer = Inferencer(local_dir="../outputs/checkpoints")
+
         lat, lon = inferencer.predict("123 Main Street, Manhattan, NY 10001")
         print(f"Coordinates: {lat[0]:.6f}, {lon[0]:.6f}")
     """
 
     def __init__(
         self,
-        repo_id: str = "YOUR_HF_USERNAME/geobert-nyc",
+        repo_id: str = "suyash94/geobert-nyc",
+        local_dir: str | Path | None = None,
         device: torch.device | str | None = None,
         cache_dir: str | None = None,
     ) -> None:
         self.repo_id = repo_id
+        self.local_dir = Path(local_dir) if local_dir else None
 
         # Load configuration
         self.config = ModelConfig()
@@ -46,35 +55,45 @@ class Inferencer:
         else:
             self.device = torch.device(device) if isinstance(device, str) else device
 
-        # Download and load normalization stats from Hub
-        print(f"Downloading normalization stats from {repo_id}...")
-        norm_stats_path = hf_hub_download(
-            repo_id=repo_id,
-            filename="norm_stats.json",
-            cache_dir=cache_dir,
-        )
+        # Load normalization stats (local or from Hub)
+        if self.local_dir:
+            print(f"Loading normalization stats from local: {self.local_dir}")
+            norm_stats_path = self.local_dir / "norm_stats.json"
+        else:
+            print(f"Downloading normalization stats from {repo_id}...")
+            norm_stats_path = hf_hub_download(
+                repo_id=repo_id,
+                filename="norm_stats.json",
+                cache_dir=cache_dir,
+            )
         self.norm_stats = NormalizationStats.load(Path(norm_stats_path))
 
         # Load tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(self.config.bert_model_name)
         self.max_seq_length = 32
 
-        # Download and load model from Hub
+        # Load model (local or from Hub)
         self.model = self._load_model(cache_dir)
 
     def _load_model(self, cache_dir: str | None = None) -> GeoBERTModel:
-        """Download and load model from HuggingFace Hub.
+        """Load model from local directory or HuggingFace Hub.
 
         :param cache_dir: Optional cache directory.
         :return: Loaded GeoBERTModel in eval mode.
         """
-        # Download model checkpoint
-        print(f"Downloading model from {self.repo_id}...")
-        checkpoint_path = hf_hub_download(
-            repo_id=self.repo_id,
-            filename="best_model.pt",
-            cache_dir=cache_dir,
-        )
+        # Get checkpoint path (local or from Hub)
+        if self.local_dir:
+            print(f"Loading model from local: {self.local_dir}")
+            checkpoint_path = self.local_dir / "best_model.pt"
+            if not checkpoint_path.exists():
+                checkpoint_path = self.local_dir / "checkpoint_epoch.pt"
+        else:
+            print(f"Downloading model from {self.repo_id}...")
+            checkpoint_path = hf_hub_download(
+                repo_id=self.repo_id,
+                filename="best_model.pt",
+                cache_dir=cache_dir,
+            )
 
         # Create model and load state dict
         model = GeoBERTModel(self.config)

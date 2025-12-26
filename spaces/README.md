@@ -46,5 +46,5 @@ Predict geographic coordinates for New York City addresses using a fine-tuned BE
 
 ## Links
 
-- [Model Repository](https://huggingface.co/YOUR_HF_USERNAME/geobert-nyc)
+- [Model Repository](https://huggingface.co/suyash94/geobert-nyc)
 - [NYC Open Data](https://data.cityofnewyork.us/)

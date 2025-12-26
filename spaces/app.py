@@ -9,11 +9,16 @@ from inferencer import Inferencer
 
 # Constants
 NYC_CENTER = [40.7128, -74.0060]
-REPO_ID = os.environ.get("HF_MODEL_REPO", "YOUR_HF_USERNAME/geobert-nyc")
+REPO_ID = os.environ.get("HF_MODEL_REPO", "suyash94/geobert-nyc")
+LOCAL_DIR = os.environ.get("LOCAL_CHECKPOINT_DIR", None)  # For local testing
 
 # Initialize inferencer (loads model on startup)
-print(f"Loading GeoBERT model from {REPO_ID}...")
-inferencer = Inferencer(repo_id=REPO_ID)
+if LOCAL_DIR:
+    print(f"Loading GeoBERT model from local: {LOCAL_DIR}")
+    inferencer = Inferencer(local_dir=LOCAL_DIR)
+else:
+    print(f"Loading GeoBERT model from HuggingFace Hub: {REPO_ID}")
+    inferencer = Inferencer(repo_id=REPO_ID)
 print("Model ready!")
 
 
