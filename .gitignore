@@ -6,3 +6,4 @@ data/
 mlruns/
 outputs/checkpoints/
 *.db
+.claude/

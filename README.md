@@ -1,100 +1,167 @@
-# GeoBERT
+# GeoBERT - NYC Address Geocoding with BERT
 
-Deep learning project using PyTorch with automatic GPU/CPU fallback.
+A deep learning model that predicts geographic coordinates (latitude/longitude) from New York City addresses. The model uses a fine-tuned BERT architecture to learn the relationship between address text and location.
 
-## Development Setup
+## Try It Now
 
-This project uses a dev container with:
-- **Python 3.12**
-- **PyTorch 2.7+** with CUDA 12.8 support
-- **uv** for fast dependency management
+**[Launch the Live Demo on HuggingFace Spaces](https://huggingface.co/spaces/suyash94/geobert-nyc-geocoder)**
 
-### Prerequisites
+Enter any NYC address and get predicted coordinates with an interactive map.
 
-- Docker Desktop with WSL2 backend (Windows) or Docker Engine (Linux/Mac)
-- VS Code with the Dev Containers extension
-- For GPU support: NVIDIA GPU with drivers and [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
+## What This Project Does
 
-### Getting Started
+Traditional geocoding relies on address parsing and database lookups. GeoBERT takes a different approach: it treats geocoding as a **text-to-coordinates regression problem**, using a transformer model to learn spatial patterns directly from address text.
 
-1. **Open in VS Code**:
-   ```bash
-   code geobert/
-   ```
+**Input:** `350 5th Avenue, Manhattan, NY 10118`
+**Output:** `(40.748817, -73.985428)`
 
-2. **Open in Dev Container**:
-   - Press `Ctrl+Shift+P` → "Dev Containers: Reopen in Container"
-   - Or click the green button in the bottom-left corner
+### Model Architecture
 
-3. **Wait for setup**:
-   - The container will build and install dependencies automatically
-   - GPU availability is detected and PyTorch is configured accordingly
-
-### Manual Setup (without Dev Container)
-
-```bash
-# Install uv
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Create virtual environment
-uv venv --python 3.12
-
-# Install with GPU support
-uv sync --extra cuda
-
-# Or install CPU-only
-uv sync --extra cpu
-
-# Activate environment
-source .venv/bin/activate
+```
+Address Text
+    ↓
+BERT Tokenizer (max 32 tokens)
+    ↓
+Tiny BERT (google/bert_uncased_L-2_H-128_A-2)
+    - 2 transformer layers
+    - 128 hidden dimensions
+    - 4.4M parameters
+    ↓
+[CLS] Token Embedding (128-dim)
+    ↓
+Regression Head: Linear(256) → ReLU → Linear(2)
+    ↓
+[latitude, longitude] (z-score normalized)
 ```
 
-### Verify Installation
+### Training Data
+
+- **~1M address points** from [NYC Open Data](https://data.cityofnewyork.us/)
+- Covers all 5 boroughs: Manhattan, Brooklyn, Queens, Bronx, Staten Island
+- Split: 80% train, 10% validation, 10% test
+
+## Quick Start
+
+### 1. Clone and Setup
 
 ```bash
-# Check PyTorch and GPU status
-python -m geobert.device
+git clone https://github.com/suyash94/geobert.git
+cd geobert
+
+# Using uv (recommended)
+uv sync
+
+# Or using pip
+pip install -e .
+```
+
+### 2. Fetch Training Data
+
+```bash
+python -m src.data.fetch_nyc_data
+```
+
+Downloads ~968K address records from NYC Open Data API.
+
+### 3. Train the Model
+
+```bash
+# Single GPU
+geobert-train
+
+# Multi-GPU with DDP
+torchrun --nproc_per_node=4 -m geobert.cli
+
+# Debug mode (1000 samples, quick iteration)
+geobert-train --debug
+```
+
+Training logs are tracked with MLflow. View them with:
+```bash
+mlflow ui
+```
+
+### 4. Evaluate
+
+Open `notebooks/04_evaluation.ipynb` to:
+- Run inference on the test set
+- View metrics (MSE, haversine distance)
+- Explore predictions on interactive Folium maps
+
+### 5. Use the Model
+
+```python
+from geobert import Inferencer
+
+# Load trained model
+inferencer = Inferencer("outputs/checkpoints")
+
+# Predict coordinates
+lat, lon = inferencer.predict("123 Main Street, Manhattan, NY 10001")
+print(f"Coordinates: {lat[0]:.6f}, {lon[0]:.6f}")
 ```
 
 ## Project Structure
 
 ```
 geobert/
-├── .devcontainer/
-│   ├── devcontainer.json      # GPU-enabled config (default)
-│   ├── devcontainer-cpu.json  # CPU-only config
-│   ├── Dockerfile
-│   └── post-create.sh
-├── src/
-│   └── geobert/
-│       ├── __init__.py
-│       └── device.py          # GPU/CPU device utilities
-├── tests/
-├── pyproject.toml             # Project config with uv
-└── README.md
+├── src/geobert/           # Main package
+│   ├── cli.py             # Training CLI (geobert-train)
+│   ├── model.py           # GeoBERTModel architecture
+│   ├── trainer.py         # Training loop with DDP support
+│   ├── dataset.py         # Data loading and preprocessing
+│   ├── inferencer.py      # Inference wrapper
+│   └── metrics.py         # Haversine distance, MSE, etc.
+├── src/data/
+│   └── fetch_nyc_data.py  # NYC Open Data fetcher
+├── notebooks/
+│   ├── 01_eda.ipynb                   # Data exploration
+│   ├── 02_map_visualizations.ipynb    # Folium maps
+│   ├── 03_model_design_decisions.ipynb # Architecture rationale
+│   └── 04_evaluation.ipynb            # Model evaluation
+├── spaces/                # HuggingFace Spaces deployment
+│   ├── app.py             # Gradio interface
+│   └── ...
+└── outputs/
+    └── checkpoints/       # Saved models
 ```
 
-## GPU vs CPU Mode
+## Development
 
-The dev container automatically detects GPU availability:
+### Prerequisites
 
-| Environment | What happens |
-|-------------|--------------|
-| With NVIDIA GPU | Uses CUDA 12.8, full GPU acceleration |
-| Without GPU | Falls back to CPU-only PyTorch |
+- Python 3.12+
+- CUDA 12.x (optional, for GPU training)
 
-To explicitly use CPU-only mode, rename `devcontainer-cpu.json` to `devcontainer.json`.
+### Dev Container (Recommended)
 
-## Dependencies
+This project includes a VS Code dev container with GPU support:
 
-Core ML stack:
-- `torch` 2.7+ - Deep learning framework
-- `transformers` - Hugging Face transformers
-- `datasets` - Hugging Face datasets
-- `accelerate` - Distributed training
-- `wandb` - Experiment tracking
+1. Install [Docker](https://docs.docker.com/get-docker/) and [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
+2. Open in VS Code → "Reopen in Container"
 
-Development:
-- `ruff` - Linting and formatting
-- `pytest` - Testing
-- `jupyter` - Notebooks
+### Commands
+
+```bash
+# Check GPU/device status
+python -m geobert.device
+
+# Run tests
+pytest
+
+# Lint
+ruff check src tests
+
+# Format
+ruff format src tests
+```
+
+## Resources
+
+- **Live Demo:** [HuggingFace Space](https://huggingface.co/spaces/suyash94/geobert-nyc-geocoder)
+- **Model Weights:** [HuggingFace Hub](https://huggingface.co/suyash94/geobert-nyc)
+- **Training Data:** [NYC Open Data - Address Points](https://data.cityofnewyork.us/)
+
+## License
+
+MIT
