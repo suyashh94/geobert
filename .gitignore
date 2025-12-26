@@ -2,3 +2,7 @@ CLAUDE.md
 .DS_Store
 .venv/
 __pycache__/
+data/
+mlruns/
+outputs/checkpoints/
+*.db
