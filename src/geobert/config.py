@@ -67,7 +67,7 @@ class TrainingConfig:
     checkpoint_dir: Path = Path("outputs/checkpoints")
     log_interval: int = 100
     eval_interval: int = 1000
-    save_interval: int = 1
+    save_interval: int = 100
     use_multi_gpu: bool = True
     max_grad_norm: float = 1.0
 

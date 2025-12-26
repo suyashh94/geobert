@@ -6,7 +6,8 @@
     },
 
     // GPU support - pass all GPUs to the container
-    "runArgs": ["--gpus", "all"],
+    // --shm-size=8g is required for NCCL multi-GPU communication
+    "runArgs": ["--gpus", "all", "--shm-size=8g"],
 
     // Features to install
     "features": {

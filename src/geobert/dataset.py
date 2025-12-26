@@ -8,6 +8,7 @@ import pandas as pd
 import torch
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, Dataset
+from torch.utils.data.distributed import DistributedSampler
 
 from geobert.config import DataConfig
 from geobert.normalization import NormalizationStats
@@ -153,23 +154,43 @@ def create_dataloaders(
     val_dataset: GeoBERTDataset,
     batch_size: int,
     num_workers: int,
-) -> tuple[DataLoader[GeoBERTBatch], DataLoader[GeoBERTBatch]]:
+    distributed: bool = False,
+) -> tuple[
+    DataLoader[GeoBERTBatch],
+    DataLoader[GeoBERTBatch],
+    DistributedSampler[GeoBERTBatch] | None,
+]:
     """Create DataLoaders for training and validation.
 
     :param train_dataset: Training dataset.
     :param val_dataset: Validation dataset.
     :param batch_size: Batch size.
     :param num_workers: Number of worker processes.
-    :return: Tuple of (train_loader, val_loader).
+    :param distributed: Whether to use DistributedSampler for DDP training.
+    :return: Tuple of (train_loader, val_loader, train_sampler).
+             train_sampler is None if not distributed.
     """
-    train_loader: DataLoader[GeoBERTBatch] = DataLoader(
-        train_dataset,
-        batch_size=batch_size,
-        shuffle=True,
-        num_workers=num_workers,
-        pin_memory=True,
-        drop_last=True,
-    )
+    train_sampler: DistributedSampler[GeoBERTBatch] | None = None
+
+    if distributed:
+        train_sampler = DistributedSampler(train_dataset, shuffle=True)
+        train_loader: DataLoader[GeoBERTBatch] = DataLoader(
+            train_dataset,
+            batch_size=batch_size,
+            sampler=train_sampler,
+            num_workers=num_workers,
+            pin_memory=True,
+            drop_last=True,
+        )
+    else:
+        train_loader = DataLoader(
+            train_dataset,
+            batch_size=batch_size,
+            shuffle=True,
+            num_workers=num_workers,
+            pin_memory=True,
+            drop_last=True,
+        )
 
     val_loader: DataLoader[GeoBERTBatch] = DataLoader(
         val_dataset,
@@ -179,4 +200,4 @@ def create_dataloaders(
         pin_memory=True,
     )
 
-    return train_loader, val_loader
+    return train_loader, val_loader, train_sampler

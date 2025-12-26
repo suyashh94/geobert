@@ -5,7 +5,11 @@
       "Bash(python -c:*)",
       "Bash(uv sync:*)",
       "WebSearch",
-      "Bash(ruff check:*)"
+      "Bash(ruff check:*)",
+      "Bash(find:*)",
+      "Bash(cat:*)",
+      "Bash(python -m geobert.device:*)",
+      "Bash(python -m pytest:*)"
     ]
   }
 }
