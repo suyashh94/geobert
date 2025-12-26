@@ -154,7 +154,7 @@ def train() -> None:
             else:
                 print(f"DEBUG MODE: Using 1000 samples, {args.epochs} epoch, batch_size=32")
 
-        args.num_samples = 1000
+        args.num_samples = 1000 if args.num_samples is None else args.num_samples
         args.epochs = 2 if args.epochs is None else args.epochs
         args.batch_size = 32
 
