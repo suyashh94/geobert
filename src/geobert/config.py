@@ -70,6 +70,9 @@ class TrainingConfig:
     save_interval: int = 100
     use_multi_gpu: bool = True
     max_grad_norm: float = 1.0
+    criterion: str = "MSELoss"  # or "MDNLoss"
+    training_mode: str = "regression"  # or "mdn"
+    mdn_num_mixtures: int = 5
 
 
 @dataclass(frozen=True)

@@ -17,7 +17,7 @@ from geobert.config import (
 )
 from geobert.dataset import create_data_splits, create_dataloaders
 from geobert.device import print_device_info
-from geobert.model import GeoBERTModel
+from geobert.model import GeoBERTMDNModel, GeoBERTModel
 from geobert.trainer import Trainer
 
 
@@ -223,7 +223,12 @@ def train() -> None:
     # Create model
     if is_main_process:
         print("Creating model...")
-    model = GeoBERTModel(config.model)
+
+    model = (
+        GeoBERTModel(config.model)
+        if config.training.training_mode == "regression"
+        else GeoBERTMDNModel(config.model, config.training.mdn_num_mixtures)
+    )
     if is_main_process:
         param_counts = model.get_num_parameters()
         print(f"Total parameters: {param_counts['total']:,}")

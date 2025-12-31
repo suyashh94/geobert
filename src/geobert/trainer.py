@@ -11,6 +11,7 @@ import mlflow
 import torch
 import torch.distributed as dist
 import torch.nn as nn
+import torch.nn.functional as F
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import LambdaLR
@@ -18,6 +19,7 @@ from torch.utils.data.distributed import DistributedSampler
 
 from geobert.config import ExperimentConfig
 from geobert.device import get_device
+from geobert.loss import MDNLoss
 from geobert.metrics import GeoMetrics, compute_metrics
 from geobert.model import GeoBERTModel
 from geobert.normalization import NormalizationStats
@@ -52,6 +54,7 @@ class Trainer:
         train_sampler: DistributedSampler[GeoBERTBatch] | None = None,
     ) -> None:
         self.config = config
+        self.model = config.training.training_mode
         self.norm_stats = norm_stats
         self.train_sampler = train_sampler
 
@@ -104,7 +107,12 @@ class Trainer:
         self.scheduler = self._create_scheduler(warmup_steps, total_steps)
 
         # Loss function
-        self.criterion = nn.MSELoss()
+        self.criterion = nn.MSELoss() if self.config.training.criterion == "MSELoss" else MDNLoss()
+
+        if self.config.training.criterion == "MSELoss" and self.model == "mdn":
+            raise ValueError("MSELoss cannot be used with MDN training mode.")
+        if self.config.training.criterion == "MDNLoss" and self.model == "regression":
+            raise ValueError("MDNLoss cannot be used with regression training mode.")
 
         # State tracking
         self.global_step = 0
@@ -145,8 +153,27 @@ class Trainer:
 
             # Forward pass
             self.optimizer.zero_grad()
-            predictions = self.model(input_ids, attention_mask)
-            loss = self.criterion(predictions, labels)
+
+            if self.mode == "regression":
+                predictions = self.model(input_ids, attention_mask)
+                loss = self.criterion(predictions, labels)
+            elif self.mode == "mdn":
+                pi_logits, mu_lat, mu_lon, sigma_lat, sigma_lon = self.model(
+                    input_ids, attention_mask
+                )
+                target_lat = labels[:, 0]
+                target_lon = labels[:, 1]
+                loss = self.criterion(
+                    pi_logits,
+                    mu_lat,
+                    mu_lon,
+                    sigma_lat,
+                    sigma_lon,
+                    target_lat,
+                    target_lon,
+                )
+            else:
+                raise ValueError(f"Unknown training mode: {self.mode}")
 
             # Backward pass
             loss.backward()
@@ -184,7 +211,7 @@ class Trainer:
         return total_loss / num_batches
 
     @torch.no_grad()
-    def validate(self) -> GeoMetrics:
+    def validate_regression(self) -> GeoMetrics:
         """Run validation and compute metrics.
 
         :return: GeoMetrics for the validation set.
@@ -214,6 +241,108 @@ class Trainer:
         # Set back to train mode (use self.model so DDP wrapper is also in train mode)
         self.model.train()
         return metrics
+
+    @torch.no_grad()
+    def validate_mdn(self) -> GeoMetrics:
+        """Run validation for MDN model and compute metrics.
+
+        :return: GeoMetrics for the validation set.
+        """
+        # Use unwrapped model for validation to avoid DDP synchronization issues
+        # when only rank 0 runs validation
+        model = self.model.module if hasattr(self.model, "module") else self.model
+        model.eval()
+        all_sampled_coords = []
+        all_labels = []
+
+        for batch in self.val_loader:
+            input_ids = batch["input_ids"].to(self.device)
+            attention_mask = batch["attention_mask"].to(self.device)
+            labels = batch["labels"]
+
+            pi_logits, mu_lat, mu_lon, sigma_lat, sigma_lon = model(
+                input_ids,
+                attention_mask,
+            )
+
+            sampled_lat, sampled_lon = self.sample_mdn(
+                pi_logits,
+                mu_lat,
+                mu_lon,
+                sigma_lat,
+                sigma_lon,
+            )
+
+            sampled_coords = torch.stack([sampled_lat, sampled_lon], dim=1)  # (batch, 2)
+
+            all_sampled_coords.append(sampled_coords.cpu())
+            all_labels.append(labels)
+
+        all_sampled_tensor = torch.cat(all_sampled_coords, dim=0)
+        all_labels_tensor = torch.cat(all_labels, dim=0)
+
+        metrics = compute_metrics(all_sampled_tensor, all_labels_tensor, self.norm_stats)
+
+        # Set back to train mode (use self.model so DDP wrapper is also in train mode)
+        self.model.train()
+        return metrics
+
+    def sample_mdn(
+        self,
+        pi_logits: torch.Tensor,
+        mu_lat: torch.Tensor,
+        mu_lon: torch.Tensor,
+        sigma_lat: torch.Tensor,
+        sigma_lon: torch.Tensor,
+        temperature: float = 1.0,
+    ) -> tuple[torch.Tensor, torch.Tensor]:
+        """
+        Sample from the mixture density network.
+
+        :param pi_logits: Raw logits for mixture weights, shape (batch, K).
+        :param mu_lat: Predicted means for latitude, shape (batch, K).
+        :param mu_lon: Predicted means for longitude, shape (batch, K).
+        :param sigma_lat: Predicted stddevs for latitude, shape (batch, K).
+        :param sigma_lon: Predicted stddevs for longitude, shape (batch, K).
+        :param temperature: Controls sampling randomness. 1.0 = normal, <1 = more deterministic, >1 = more random.
+        :return: Tuple of (sampled_lat, sampled_lon), each of shape (batch,).
+        """
+        batch_size = pi_logits.shape[0]
+
+        # Step 1: Sample which component to use for each batch element
+        pi = F.softmax(pi_logits / temperature, dim=-1)  # (batch, K)
+        component_indices = torch.multinomial(pi, num_samples=1).squeeze(-1)  # (batch,)
+
+        # Step 2: Gather the mu and sigma for the selected components
+        batch_idx = torch.arange(batch_size, device=pi_logits.device)
+
+        selected_mu_lat = mu_lat[batch_idx, component_indices]  # (batch,)
+        selected_mu_lon = mu_lon[batch_idx, component_indices]  # (batch,)
+        selected_sigma_lat = sigma_lat[batch_idx, component_indices]  # (batch,)
+        selected_sigma_lon = sigma_lon[batch_idx, component_indices]  # (batch,)
+
+        # Step 3: Sample from the selected Gaussian
+        # Using reparameterisation: sample = mu + sigma * epsilon
+        epsilon_lat = torch.randn_like(selected_mu_lat)
+        epsilon_lon = torch.randn_like(selected_mu_lon)
+
+        sampled_lat = selected_mu_lat + selected_sigma_lat * epsilon_lat
+        sampled_lon = selected_mu_lon + selected_sigma_lon * epsilon_lon
+
+        return sampled_lat, sampled_lon
+
+    @torch.no_grad()
+    def validate(self) -> GeoMetrics:
+        """Run validation based on training mode.
+
+        :return: GeoMetrics for the validation set.
+        """
+        if self.mode == "regression":
+            return self.validate_regression()
+        elif self.mode == "mdn":
+            return self.validate_mdn()
+        else:
+            raise NotImplementedError("Validation for MDN mode is not implemented yet.")
 
     def _log_validation_metrics(self, metrics: GeoMetrics) -> None:
         """Log validation metrics to console and MLflow."""
