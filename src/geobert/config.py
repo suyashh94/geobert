@@ -38,7 +38,7 @@ class ModelConfig:
     bert_model_name: str = "google/bert_uncased_L-2_H-128_A-2"
     hidden_dim: int = 256
     output_dim: int = 2
-
+    mdn_num_mixtures: int = 5
 
 @dataclass(frozen=True)
 class TrainingConfig:
@@ -72,7 +72,7 @@ class TrainingConfig:
     max_grad_norm: float = 1.0
     criterion: str = "MSELoss"  # or "MDNLoss"
     training_mode: str = "regression"  # or "mdn"
-    mdn_num_mixtures: int = 5
+    
 
 
 @dataclass(frozen=True)

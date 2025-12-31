@@ -10,3 +10,5 @@ outputs/checkpoints/
 node_modules/
 package-lock.json
 package.json
+outputs/debug_*
+outputs/mdn_*

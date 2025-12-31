@@ -95,7 +95,7 @@ def train() -> None:
     parser.add_argument(
         "--batch-size",
         type=int,
-        default=256,
+        default=1024,
         help="Batch size per GPU",
     )
     parser.add_argument(
@@ -144,7 +144,32 @@ def train() -> None:
         help="Disable multi-GPU training",
     )
 
+    # Mode selection -- regression or MDN
+    parser.add_argument(
+        "--training-mode",
+        type=str,
+        choices=["regression", "mdn"],
+        default="regression",
+        help="Training mode: regression or mdn",
+    )
+
+    # MDN number of mixtures
+    parser.add_argument(
+        "--mdn-num-mixtures",
+        type=int,
+        default=5,
+        help="Number of mixtures for MDN head (only for mdn mode)",
+    )
+
     args = parser.parse_args()
+
+    # setting training criterion based on training mode
+    if args.training_mode == "regression":
+        criterion = "MSELoss"
+    elif args.training_mode == "mdn":
+        criterion = "MDNLoss"
+    else:
+        raise ValueError(f"Invalid training mode: {args.training_mode}")
 
     # Apply debug mode overrides
     if args.debug:
@@ -171,7 +196,7 @@ def train() -> None:
             max_seq_length=args.max_seq_length,
             num_samples=args.num_samples,
         ),
-        model=ModelConfig(),
+        model=ModelConfig(mdn_num_mixtures=args.mdn_num_mixtures),
         training=TrainingConfig(
             batch_size=args.batch_size,
             num_epochs=args.epochs,
@@ -179,6 +204,8 @@ def train() -> None:
             num_workers=args.num_workers,
             checkpoint_dir=args.checkpoint_dir,
             use_multi_gpu=not args.no_multi_gpu,
+            criterion=criterion,
+            training_mode=args.training_mode,
         ),
         experiment_name=args.experiment_name,
         run_name=args.run_name,
@@ -227,7 +254,7 @@ def train() -> None:
     model = (
         GeoBERTModel(config.model)
         if config.training.training_mode == "regression"
-        else GeoBERTMDNModel(config.model, config.training.mdn_num_mixtures)
+        else GeoBERTMDNModel(config.model)
     )
     if is_main_process:
         param_counts = model.get_num_parameters()

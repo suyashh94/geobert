@@ -2,6 +2,7 @@
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from transformers import AutoConfig, AutoModel
 
 from geobert.config import ModelConfig
@@ -74,14 +75,17 @@ class GeoBERTMDNModel(GeoBERTModel):
     num_mixtures: Number of Gaussian mixtures in the MDN head.
     """
 
-    def __init__(self, config: ModelConfig, num_mixtures: int = 5) -> None:
+    def __init__(self, config: ModelConfig) -> None:
         super().__init__(config)
-        self.num_mixtures = num_mixtures
+        self.num_mixtures = config.mdn_num_mixtures
 
-        self.pi_head = nn.Linear(self.bert_config.hidden_size, num_mixtures)
-        self.mu_head = nn.Linear(self.bert_config.hidden_size, num_mixtures * config.output_dim)
-        self.sigma_head = nn.Linear(self.bert_config.hidden_size, num_mixtures * config.output_dim)
-        self.sigma_eps = 1e-6
+        self.relu = nn.ReLU()
+        self.softplus = nn.Softplus()
+
+        self.pi_head = nn.Linear(self.bert_config.hidden_size, self.num_mixtures)
+        self.mu_head = nn.Linear(self.bert_config.hidden_size, self.num_mixtures * config.output_dim)
+        self.sigma_head = nn.Linear(self.bert_config.hidden_size, self.num_mixtures * config.output_dim)
+        self.sigma_eps = 1e-20
         # Remove self.regresseion_head  property
         del self.regression_head
 
@@ -91,7 +95,7 @@ class GeoBERTMDNModel(GeoBERTModel):
         :param logits: Raw logits of shape (batch, num_mixtures).
         :return: Mixture coefficients of shape (batch, num_mixtures).
         """
-        pi = nn.Softmax(dim=-1)(logits)
+        pi = F.softmax(logits, dim=1)
         return pi
 
     def forward(
@@ -113,7 +117,7 @@ class GeoBERTMDNModel(GeoBERTModel):
 
         # Extract CLS token embedding
         cls_embedding = outputs.last_hidden_state[:, 0, :]  # (batch, 128)
-        hidden = nn.ReLU()(cls_embedding)
+        hidden = self.relu(cls_embedding)
 
         # Mixture coefficients
         pi_logits = self.pi_head(hidden)  # (batch, num_mixtures)
@@ -128,6 +132,6 @@ class GeoBERTMDNModel(GeoBERTModel):
         sigma = sigma.view(
             -1, self.num_mixtures, self.config.output_dim
         )  # (batch, num_mixtures, 2)
-        sigma_lat = nn.Softplus()(sigma[:, :, 0]) + self.sigma_eps  # (batch, num_mixtures)
-        sigma_lon = nn.Softplus()(sigma[:, :, 1]) + self.sigma_eps  # (batch, num_mixtures)
+        sigma_lat = self.softplus(sigma[:, :, 0]) + self.sigma_eps  # (batch, num_mixtures)
+        sigma_lon = self.softplus(sigma[:, :, 1]) + self.sigma_eps  # (batch, num_mixtures)
         return pi_logits, mu_lat, mu_lon, sigma_lat, sigma_lon

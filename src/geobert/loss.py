@@ -4,7 +4,7 @@ import torch.nn.functional as F
 
 
 class MDNLoss(nn.Module):
-    def __init__(self, sigma_min: float = 1e-6):
+    def __init__(self, sigma_min: float = 1e-20):
         super().__init__()
         self.sigma_min = sigma_min
 

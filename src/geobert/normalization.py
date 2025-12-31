@@ -49,6 +49,20 @@ class NormalizationStats:
         lon = predictions[:, 1] * self.lon_std + self.lon_mean
         return lat, lon
 
+    def denormalize_sigma(
+        self, sigma_lat: torch.Tensor, sigma_lon: torch.Tensor
+    ) -> tuple[torch.Tensor, torch.Tensor]:
+        """Denormalize sigma (std dev) values back to degrees.
+
+        Unlike denormalize(), sigma values only need scaling (no mean offset)
+        since they represent spreads, not absolute positions.
+
+        :param sigma_lat: Tensor of normalized latitude std devs.
+        :param sigma_lon: Tensor of normalized longitude std devs.
+        :return: Tuple of (sigma_lat, sigma_lon) in degrees.
+        """
+        return sigma_lat * self.lat_std, sigma_lon * self.lon_std
+
     def save(self, path: Path) -> None:
         """Save normalization stats to JSON file.
 

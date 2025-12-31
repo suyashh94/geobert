@@ -11,7 +11,6 @@ import mlflow
 import torch
 import torch.distributed as dist
 import torch.nn as nn
-import torch.nn.functional as F
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.optim import AdamW
 from torch.optim.lr_scheduler import LambdaLR
@@ -19,6 +18,7 @@ from torch.utils.data.distributed import DistributedSampler
 
 from geobert.config import ExperimentConfig
 from geobert.device import get_device
+from geobert.helper import sample_mdn
 from geobert.loss import MDNLoss
 from geobert.metrics import GeoMetrics, compute_metrics
 from geobert.model import GeoBERTModel
@@ -54,7 +54,7 @@ class Trainer:
         train_sampler: DistributedSampler[GeoBERTBatch] | None = None,
     ) -> None:
         self.config = config
-        self.model = config.training.training_mode
+        self.mode = config.training.training_mode
         self.norm_stats = norm_stats
         self.train_sampler = train_sampler
 
@@ -109,9 +109,9 @@ class Trainer:
         # Loss function
         self.criterion = nn.MSELoss() if self.config.training.criterion == "MSELoss" else MDNLoss()
 
-        if self.config.training.criterion == "MSELoss" and self.model == "mdn":
+        if self.config.training.criterion == "MSELoss" and self.mode == "mdn":
             raise ValueError("MSELoss cannot be used with MDN training mode.")
-        if self.config.training.criterion == "MDNLoss" and self.model == "regression":
+        if self.config.training.criterion == "MDNLoss" and self.mode == "regression":
             raise ValueError("MDNLoss cannot be used with regression training mode.")
 
         # State tracking
@@ -265,7 +265,7 @@ class Trainer:
                 attention_mask,
             )
 
-            sampled_lat, sampled_lon = self.sample_mdn(
+            sampled_lat, sampled_lon = sample_mdn(
                 pi_logits,
                 mu_lat,
                 mu_lon,
@@ -286,50 +286,6 @@ class Trainer:
         # Set back to train mode (use self.model so DDP wrapper is also in train mode)
         self.model.train()
         return metrics
-
-    def sample_mdn(
-        self,
-        pi_logits: torch.Tensor,
-        mu_lat: torch.Tensor,
-        mu_lon: torch.Tensor,
-        sigma_lat: torch.Tensor,
-        sigma_lon: torch.Tensor,
-        temperature: float = 1.0,
-    ) -> tuple[torch.Tensor, torch.Tensor]:
-        """
-        Sample from the mixture density network.
-
-        :param pi_logits: Raw logits for mixture weights, shape (batch, K).
-        :param mu_lat: Predicted means for latitude, shape (batch, K).
-        :param mu_lon: Predicted means for longitude, shape (batch, K).
-        :param sigma_lat: Predicted stddevs for latitude, shape (batch, K).
-        :param sigma_lon: Predicted stddevs for longitude, shape (batch, K).
-        :param temperature: Controls sampling randomness. 1.0 = normal, <1 = more deterministic, >1 = more random.
-        :return: Tuple of (sampled_lat, sampled_lon), each of shape (batch,).
-        """
-        batch_size = pi_logits.shape[0]
-
-        # Step 1: Sample which component to use for each batch element
-        pi = F.softmax(pi_logits / temperature, dim=-1)  # (batch, K)
-        component_indices = torch.multinomial(pi, num_samples=1).squeeze(-1)  # (batch,)
-
-        # Step 2: Gather the mu and sigma for the selected components
-        batch_idx = torch.arange(batch_size, device=pi_logits.device)
-
-        selected_mu_lat = mu_lat[batch_idx, component_indices]  # (batch,)
-        selected_mu_lon = mu_lon[batch_idx, component_indices]  # (batch,)
-        selected_sigma_lat = sigma_lat[batch_idx, component_indices]  # (batch,)
-        selected_sigma_lon = sigma_lon[batch_idx, component_indices]  # (batch,)
-
-        # Step 3: Sample from the selected Gaussian
-        # Using reparameterisation: sample = mu + sigma * epsilon
-        epsilon_lat = torch.randn_like(selected_mu_lat)
-        epsilon_lon = torch.randn_like(selected_mu_lon)
-
-        sampled_lat = selected_mu_lat + selected_sigma_lat * epsilon_lat
-        sampled_lon = selected_mu_lon + selected_sigma_lon * epsilon_lon
-
-        return sampled_lat, sampled_lon
 
     @torch.no_grad()
     def validate(self) -> GeoMetrics:
